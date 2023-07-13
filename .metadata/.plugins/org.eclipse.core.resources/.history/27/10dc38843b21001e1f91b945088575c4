@@ -1,0 +1,17 @@
+package p2023_7_13;
+
+public class Oper04 {
+
+	public static void main(String[] args) {
+
+// 비교 연산자 >, >=, <, <=, ==(같다), !=(같지 않다)
+// 비교 연산자의 결과가 참이면 true, 거짓이면 false 값을 리턴한다.		
+		
+		String str1 = "자바";
+		String str2 = "자바";
+		String str3 = new String ("자바");
+		
+		
+	}
+
+}

@@ -1,0 +1,20 @@
+package p2023_7_13;
+
+import java.util.Scanner;
+
+public class Oper05 {
+
+	public static void main(String[] args) {
+
+//예비처리를 하지않아도 되는 클래스	import 필요
+		
+		System.out.println("정수 2개를 입력하세요?");
+		//출럭 System.out.
+		Scanner sc = new Scanner(System.in);
+		// 입력을 받아야 하기 때문에 (System.in) - 정적 필드
+		
+		
+
+	}
+
+}

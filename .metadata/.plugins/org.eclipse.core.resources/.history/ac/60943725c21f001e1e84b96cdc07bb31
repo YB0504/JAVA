@@ -1,0 +1,19 @@
+package p2023_7_11;
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		System.out.println("자바 출력 성공");
+
+		System.out.println("Hello World");
+		
+		int score = 90;
+		System.out.println(score);
+		
+		int hour = 5;
+		int minute = 03;
+		
+		System.out.println("PM " + hour + "시 " + minute + "분");
+	}
+}

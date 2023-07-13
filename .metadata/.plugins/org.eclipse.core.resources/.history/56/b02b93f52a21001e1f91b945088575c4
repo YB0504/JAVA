@@ -1,0 +1,14 @@
+package p2023_7_13;
+
+public class Oper01 {
+
+	public static void main(String[] args) {
+		
+// 산슬 연산자 : +, -, *, /, %(나머지)
+		
+		int a = 10, b = 3, c; // int 변수를 한줄로 여러번 선언 할 때는 , 로 가능 
+		
+		
+	}
+
+}

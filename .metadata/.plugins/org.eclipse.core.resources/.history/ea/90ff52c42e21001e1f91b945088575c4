@@ -1,0 +1,19 @@
+package p2023_7_13;
+
+public class Oper03 {
+
+	public static void main(String[] args) {
+		
+// 비교 연산자 >, >=, <, <=, ==(같다), !=(같지 않다)
+// 비교 얀산자의 결과가 참이면 true, 거짓이면 false 값을 리턴한다.
+		
+		int num1 = 10;
+		int num2 = 10;
+		
+		boolean result1 = (num1 == num2)
+		
+		
+		
+	}
+
+}

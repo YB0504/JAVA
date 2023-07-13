@@ -1,0 +1,16 @@
+package p2023_7_12;
+
+// float 과 double의 차이점
+public class VariableEx04 {
+
+	public static void main(String[] args) {
+		
+//		float var1 = 3.14;
+		float var2 = 3.14f;
+		double var3 = 3.14;
+		
+		
+		
+	}
+
+}

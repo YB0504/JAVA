@@ -1,0 +1,17 @@
+package p2023_7_13;
+
+public class Oper05 {
+
+	public static void main(String[] args) {
+
+//예비처리를 하지않아도 되는 클래스	
+		
+		System.out.println("정수 2개를 입력하세요?");
+		
+		
+		
+		
+
+	}
+
+}
