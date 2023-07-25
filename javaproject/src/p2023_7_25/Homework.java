@@ -20,9 +20,9 @@ public class Homework {
 		} else if (id2.length() != 7) {
 			System.out.println("주민번호 뒷자리 일곱 자리를 입력하세요.");
 		} else if (!idCheck(id1 + id2)) {
-			System.out.println("잘못된 주민등록번호입니다");
-		} else {
 			System.out.println("올바른 주민등록번호입니다");
+		} else {
+			System.out.println("잘못된 주민등록번호입니다");
 		}
 
 	}
@@ -32,17 +32,22 @@ public class Homework {
 		// 주민번호 각 자리에 곱할 숫자
 		int[] idCheck = { 2, 3, 4, 5, 6, 7, 8, 9, 2, 3, 4, 5 };
 
+		int sum = 0;
 		// 주민번호가 옮은지 잘못됬는지 검증하는 for문
-		for (int i = 0; i < id.length(); i++) {
+		for (int i = 0; i < idCheck.length; i++) {
 //			for (int j = 0; j < idCheck.length; j++) {
 
-			int sum = 0;
 			sum += idCheck[i] * Integer.parseInt(id.substring(i, i + 1));
 
-			int total = 11 - (sum % 11);
+		}
+		int total = 11 - (sum % 11);
+		
+		if(total == Integer.parseInt(id.substring(12, 13))) {
+			return false;
+		}else {
+			return true;
 		}
 
-		return false;
 	}
 
 }
