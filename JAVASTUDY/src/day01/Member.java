@@ -6,6 +6,8 @@ public class Member {
 //	멤버변수 (필드)
 //	: 메소드 바깥 쪽에 정의된 변수
 //	heap 메모리상에 값을 저장
+//	클래스 . 으로 접근해서 출력할 수 있다.
+//	자동으로 해당 자료 값으로 초기화 된다.
 	int age;
 	double l;
 	double r;
@@ -22,7 +24,7 @@ public class Member {
 
 	}
 
-//	메인
+//	메소드
 //	필드값을 출력
 	public void print() {
 		System.out.println(age);
@@ -33,10 +35,15 @@ public class Member {
 	}
 //	필드값을 수정
 	public void setAge(int age) {
+		// setters 메소드
+		// 매개변수를 통하여 필드 값을 수정,변경 하는 메소드
 		this.age = age;
 	}
 //	필드값을 리턴
 	public int getAge() {
+		// getters메소드
+		// 필드 값을 메소드 호출한 곳에 돌려주는 역할
+		// 반드시 return문을 작성하여 각 필드마다 개별적으로 돌려줘야 함
 		return age;
 	}
 
@@ -49,8 +56,8 @@ public class Member {
 //					기억공간을 생성하라는 의미
 
 		Member m1 		= new   Member();
-//		클래스 레퍼언스 변수	 연산자	생성자 호출
-//		new 연산자 : heap메모리 상에 age필드를 저장하기 위한 
+//		클래스 레퍼런스 변수	 연산자	생성자 호출
+//		new 연산자 : heap메모리 상에 필드를 저장하기 위한 
 //					기억공간을 생성하라는 의미
 		
 		m1.print();
