@@ -14,6 +14,7 @@ public class CalendarEx {
 		// 업 캐스팅
 		Calendar c2 = new GregorianCalendar(); // 자료형 변환
 
+		// getInstance 메소드로 객체를 구해와야 한다.
 		Calendar c = Calendar.getInstance();
 		System.out.println(c); // 1690168210434
 		System.out.println(Calendar.YEAR); // 1
@@ -37,8 +38,8 @@ public class CalendarEx {
 		int mm = c.get(Calendar.MINUTE); // 분
 		int ss = c.get(Calendar.SECOND); // 초
 
-		System.out.println(h1 + ":" + mm + ":" + ss); // 12시간제
 		System.out.println(h2 + ":" + mm + ":" + ss); // 24시간제
+		System.out.println(h1 + ":" + mm + ":" + ss); // 12시간제
 
 	}
 
