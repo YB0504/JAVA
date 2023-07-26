@@ -51,7 +51,6 @@ public class Homework {
 		// 주민번호가 옮은지 잘못됬는지 검증하는 for문
 		// idCheck.length는 idCheck배열의 크기(속성)
 		for (int i = 0; i < idCheck.length; i++) {
-
 			sum += idCheck[i] * Integer.parseInt(id.substring(i, i + 1));
 			// sum = sum + idCheck[i] * Integer.parseInt(id.substring(i, i + 1));
 			// id문자열에서 i번째 인덱스부터 i+1번째 인덱스까지 추출하고
