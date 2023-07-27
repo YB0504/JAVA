@@ -7,7 +7,7 @@ public class FrameTestEx extends Frame {
 
 	public FrameTestEx() {
 
-//	f = new Frame( "Frame Test" );
+//		f = new Frame( "Frame Test" );
 		super("Frame Test");
 
 		addWindowListener(new WindowAdapter() {

@@ -5,9 +5,14 @@ public class Homework02 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		int[][] score = { { 85, 60, 70 }, { 90, 95, 80 }, { 75, 80, 100 }, { 80, 70, 95 }, { 100, 65, 80 } };
-		int[] subject = new int[3];
-		int[] student = new int[5];
+		int[][] score = {
+						{ 85, 60, 70 },
+						{ 90, 95, 80 }, 
+						{ 75, 80, 100 }, 
+						{ 80, 70, 95 }, 
+						{ 100, 65, 80 } };
+		int[] subject = new int[3]; // 열
+		int[] student = new int[5];	// 행
 
 		String[] subName = { "국어", "영어", "수학" };
 		String[] stuName = { "1", "2", "3", "4", "5" };

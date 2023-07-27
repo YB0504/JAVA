@@ -33,5 +33,6 @@ public class ArrayEx05 {
 			sum += scores[i]; // 주소값을 받은 후 값을 참조해서 루프
 		}
 		return sum;
+		// 메소드 앞이 자료형 변수이기 때문에 값을 리턴 시켜줘야한다.
 	}
 }

@@ -13,6 +13,7 @@ public class Homework01 {
 		int max, min;
 		for(int i = 0; i < s1.length; i++)
 			s1[i] = sc.nextInt();
+			// 해당 인덱스 번호의 배열에 값을 입력받는다.
 			max = s1[0];
 			min	= s1[0];
 		for(int i = 0; i < s1.length; i++) {

@@ -8,6 +8,8 @@ public class FrameTest {
 	private Frame f;
 
 	public FrameTest() {
+		
+		// Frame클래스의 부모 클래스로부터 상속받아서 사용
 		f = new Frame("Frame Test");
 		f.setSize(400, 300);
 		f.setLocation(100, 100);
