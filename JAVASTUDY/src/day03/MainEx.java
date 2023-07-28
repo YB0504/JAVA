@@ -1,5 +1,7 @@
 package day03;
 
+
+// DTO (Data Transfer Object) 데이터 전송 객체
 class Member2 {
 
 	// 접근제어자가 private인 필드
@@ -85,7 +87,7 @@ public class MainEx {
 //		외부 클래스에서 직접 접근할 수 없다.
 
 		Member2 m1 = new Member2(25, "홍길동", "네이버", "서울");
-		m1.print();
+		m1.print();	// 생성자 호출
 //		print메소드를 활용하여 출력
 	}
 
