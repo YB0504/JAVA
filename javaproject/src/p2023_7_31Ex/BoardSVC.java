@@ -32,6 +32,7 @@ public class BoardSVC {
 		String content = sc.next();
 
 		BoardVO boardVO = new BoardVO(register, subject, email, content, passwd);
+//		boardVO.register = "홍길동";	필드의 접근제어자가 praivate라서 직접 겁근 불가
 		addArticle(boardVO);
 	}
 
@@ -44,6 +45,7 @@ public class BoardSVC {
 	public void listArticles(Scanner sc) {
 		if (boardList.size() > 0) {
 			for (int i = 0; i < boardList.size(); i++) {
+				// 작성된 글이 있으면
 				System.out.println(boardList.get(i).toString());
 			}
 		} else {
@@ -65,17 +67,17 @@ public class BoardSVC {
 
 	// 글 삭제
 	public void removeArticle(String register, String passwd) {
-		if (boardList.size() > 0) {
-			int index = -1;
+		if (boardList.size() > 0) {	// 삭제할 글이 있으면
+			int index = -1;	// 직접 입력한 작성자명과 비밀번호를 메모리상에 저장된 값과 비교
 			for (int i = 0; i < boardList.size(); i++) {
-				if (boardList.get(i).getRegister().equals(register)) {
-					if (boardList.get(i).getPasswd().equals(passwd)) {
+				if (boardList.get(i).getRegister().equals(register)) {	// 작성자명 비교
+					if (boardList.get(i).getPasswd().equals(passwd)) {	// 비밀번호 비교
 						boardList.remove(boardList.get(i));
 						index = i;
 					}
 				}
 			}
-			if (index == -1) {
+			if (index == -1) {	// 작성자명과 비밀번호가 일치하지 않는 경우
 				System.out.println("해당 작성자가 없거나 비밀번호가 일치하지 않습니다.");
 				return;
 			}

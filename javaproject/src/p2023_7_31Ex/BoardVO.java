@@ -66,7 +66,7 @@ public class BoardVO extends Object{
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "작성자:"+register+",이메일:"+email+",제목:"+subject+",글내용:"+content;
+		return "작성자:" + register + ",이메일:" + email + ",제목:" + subject + ",글내용:" + content;
 	}
 	
 }
