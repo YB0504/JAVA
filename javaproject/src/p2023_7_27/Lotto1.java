@@ -23,17 +23,17 @@ class Lotto1 {
 			} // for end
 		} // for end
 
-		// 오름차순 정렬 : 버블정렬(자신의 옆자리에 있는 것과 비교)
-		int temp = 0;
-		for (int i = 0; i < num.length; i++) {
-			for (int j = i + 1; j < num.length; j++) {
-				if (num[i] > num[j]) {
-					temp = num[i];
-					num[i] = num[j];
-					num[j] = temp;
-				}
-			}
-		}
+//		// 오름차순 정렬 : 버블정렬(자신의 옆자리에 있는 것과 비교)
+//		int temp = 0;
+//		for (int i = 0; i < num.length; i++) {
+//			for (int j = i + 1; j < num.length; j++) {
+//				if (num[i] > num[j]) {
+//					temp = num[i];
+//					num[i] = num[j];
+//					num[j] = temp;
+//				}
+//			}
+//		}
 
 		Arrays.sort(num); // Arrays 클래스 : 오름차순 정렬
 

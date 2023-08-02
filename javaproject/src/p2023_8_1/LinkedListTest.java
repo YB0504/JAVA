@@ -18,12 +18,12 @@ class LinkedListTest {
 		myQue.offer("3 - API");
 		myQue.offer("4 - MFC");
 
-//		System.out.println(myQue.pop()); // 자바
-//		System.out.println(myQue.pop()); // C++
-//		System.out.println(myQue.pop()); // API
-//		System.out.println(myQue.pop()); // MFC
-//		System.out.println(myQue.pop()); // null
-		// Queue가 비어있으면 null값을 리턴
+//		System.out.println(myQue.poll()); // 자바
+//		System.out.println(myQue.poll()); // C++
+//		System.out.println(myQue.poll()); // API
+//		System.out.println(myQue.poll()); // MFC
+//		System.out.println(myQue.poll()); // null
+////		Queue가 비어있으면 null값을 리턴
 
 		while (myQue.peek() != null) // 큐가 비어있지 않다면
 			System.out.println(myQue.poll()); // 큐에서 데이터를 꺼내온다.
