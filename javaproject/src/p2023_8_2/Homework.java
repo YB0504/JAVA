@@ -50,9 +50,9 @@ public class Homework {
 
 		ArrayList<MemberInfo> list = new ArrayList<>();
 		boolean stop = false;
-		
+
 		Scanner sc = new Scanner(System.in);
-		while(true) {
+		while (true) {
 			System.out.println("회원 정보를 입력하세요");
 			System.out.print("성명");
 			String name = sc.nextLine();
@@ -60,38 +60,37 @@ public class Homework {
 			int age = sc.nextInt();
 			sc.nextLine();
 			System.out.println("이메일");
-			String email = sc.nextLine();			
+			String email = sc.nextLine();
 			System.out.println("주소");
 			String address = sc.nextLine();
-			
+
 			MemberInfo m = new MemberInfo();
 			m.setName(name);
 			m.setAge(age);
 			m.setEmail(email);
 			m.setAddress(address);
-			
+
 			list.add(m);
-			
+
 			System.out.println("계속히려면 y, 멈추려면 n입력?");
 			String yn = sc.nextLine();
-			if(yn.equals("y") || yn.equals("Y")) {
+			if (yn.equals("y") || yn.equals("Y")) {
 				continue;
-			}else if(yn.equals("n") || yn.equals("N")) {
+			} else if (yn.equals("n") || yn.equals("N")) {
 				break;
 			}
-			
+
 		}
-		
-		for(int i=0; i<list.size(); i++) {
+
+		for (int i = 0; i < list.size(); i++) {
 			MemberInfo m = list.get(i);
-			
+
 			System.out.println("성명:" + m.getName());
 			System.out.println("나이:" + m.getAge());
 			System.out.println("email:" + m.getEmail());
 			System.out.println("주소ㅓ:" + m.getAddress());
 		}
-		
-		
-  }
-	
+
+	}
+
 }
