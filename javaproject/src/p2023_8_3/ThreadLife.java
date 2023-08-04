@@ -6,6 +6,8 @@ public class ThreadLife implements Runnable {
 	public void run() { // 메소드 오버라이딩
 		for (int i = 1; i < 21; i++) {
 			// thread의 이름과 정수 출력
+			// currentThread() : 현재의 스레드를 구해오는 메소드
+			// getName () 는 메인메소드에 선언한 메소드 이름을 불러오는 것
 			System.out.println(Thread.currentThread().getName() + " number = " + i);
 		}
 	}

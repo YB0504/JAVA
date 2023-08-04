@@ -7,7 +7,6 @@ package p2023_8_3;
 
 public class ThreadEnd extends Thread {
 
-	@Override
 	public void run() { // 실행중인 상태(Running)
 		// thread가 시작되면 실행되는 문장
 		for (int i = 1; i <= 20; i++) {
