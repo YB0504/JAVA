@@ -88,7 +88,7 @@ public class Homework {
 			System.out.println("성명:" + m.getName());
 			System.out.println("나이:" + m.getAge());
 			System.out.println("email:" + m.getEmail());
-			System.out.println("주소ㅓ:" + m.getAddress());
+			System.out.println("주소:" + m.getAddress());
 		}
 
 	}
