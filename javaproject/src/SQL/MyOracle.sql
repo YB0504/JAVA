@@ -7,7 +7,7 @@ select * from customer;
 
 -- 예1
 -- primary key (기본키) : 반드시 중복되지 않는 값을 저장 해야한다는 의미
---create table customer( no number(4)  primary key, 
+create table customer( no number(4)  primary key, 
 --		       		   name varchar2(20),
 --		       		   email varchar2(20),
 --		       		   tel varchar2(20));
