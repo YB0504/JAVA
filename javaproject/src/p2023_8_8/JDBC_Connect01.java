@@ -5,6 +5,7 @@ public class JDBC_Connect01 {
 	public static void main(String[] args) {
 
 		/** ORACLE JDBC Driver Test ***************************/
+		// oracle.jdbc.driver 라는 패키지명
 		String driver = "oracle.jdbc.driver.OracleDriver";
 		/******************************************************/
 

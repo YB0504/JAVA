@@ -1,35 +1,35 @@
-package p2023_8_8;
+package p2023_8_9;
 
 import java.io.BufferedReader; // 도스 콘솔 창에서 사용자 입력을 받아들이기 위해 BufferedReader 
 import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.Statement;
+import java.sql.PreparedStatement;
+import java.sql.Timestamp;
 
-class JDBC_Update {
+class JDBC_Update02 {
 	public static void main(String[] args) {
 
 		String driver = "oracle.jdbc.driver.OracleDriver";
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 
 		Connection con = null;
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 
 		String sql;
-		int no = 0;
-		String name, email, tel;
+		int no;
+		String name, email, tel, address;
 
-		try { // 공통 코드
+		try {
 			Class.forName(driver);
 			con = DriverManager.getConnection(url, "scott", "tiger");
-			
-			stmt = con.createStatement();
 
 			// ---JDBC_Insert 추가된 내용-------
 			// 테이블에 추가할 내용을 도스 콘솔 창에서 사용자의 입력을 받도록 한다.
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
 			System.out.println(" customer 테이블에 값 갱신하기 .....");
-			System.out.print("수정할 회원번호를 입력 하세요?");
+			System.out.println("번호를 입력 하세요?");
 			no = Integer.parseInt(br.readLine());
 			System.out.print("변경할 이름을 입력하세요: ");
 			name = br.readLine(); // 테이블에 추가할 name 필드 값을 입력 받음
@@ -37,25 +37,35 @@ class JDBC_Update {
 			email = br.readLine(); // 테이블에 추가할 email 필드 값을 입력 받음
 			System.out.print("변경할 전화번호 입력: ");
 			tel = br.readLine(); // 테이블에 추가할 tel 필드 값을 입력 받음
+			System.out.println("변경할 주소를 입력하세요?");
+			address = br.readLine();
 
-			// INSERT 쿼리문을 작성
-			// 한줄로 쓰기 힘들때는 += 을 이용하여 누적해서 작성
-			sql = "UPDATE customer SET email='" + email;
-			sql += "' , tel='" + tel + "', name='" + name + "' WHERE no = " + no;
+			// 가입한 날짜에서 수정한 당시의 날짜로 변경하기 위해 객체 생성
+			Timestamp ts = new Timestamp(System.currentTimeMillis());
 
-			// Statement 객체의 executeUpdate(sql) 메서드를 이용해
-			int result = stmt.executeUpdate(sql); // 데이터베이스 파일의 내용을 변경시킴
+			sql = "UPDATE customer SET name = ?, email = ?, tel = ?,";
+			sql += "address = ?, reg_date = sysdate where no = ?";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, email);
+			pstmt.setString(3, tel);
+			pstmt.setString(4, address);
+//			pstmt.setTimestamp(5, ts);
+			pstmt.setInt(5, no);
+			int result = pstmt.executeUpdate();
 			if (result == 1) {
-				System.out.println("데이터 수정 성공");
+				System.out.println(" 데이터 수정 성공!! ");
 			} else {
-				System.out.println("데이터 수정 실패");
+				System.out.println(" 데이터 수정 실패 ");
 			}
 		} catch (Exception e) {
 			System.out.println("데이터베이스 연결 실패!");
+			e.printStackTrace();
 		} finally {
-			try { // 객체를 만든 순서의 반대 순서로 닫아준다.
-				if (stmt != null)
-					stmt.close();
+			try {
+				if (pstmt != null)
+					pstmt.close();
 				if (con != null)
 					con.close();
 			} catch (Exception e) {

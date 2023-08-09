@@ -30,6 +30,7 @@ public class JDBC_Connect02 {
 			/** ORACLE에서 Connection 객체 ***********************************/
 			con = DriverManager.getConnection(url, "scott", "tiger");
 			// xe 데이터베이스에 접속
+			// Connection 객체 리턴
 			/*******************************************************************/
 
 			/** My-SQL에서 Connection 객체 ***********************************/
