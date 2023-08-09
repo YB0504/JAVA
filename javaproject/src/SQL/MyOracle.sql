@@ -14,9 +14,12 @@ purge recyclebin;
 -- primary key (기본키) : 반드시 중복되지 않는 값을 저장 해야한다는 의미
 -- 보통 한개의 테이블에 한개가 사용된다.
 -- where조건절에 설정된값이 들어간다.
-create table customer( no number(4)  primary key, -- number는 숫자 9999까지 작성가능하다.
-		       		   name varchar2(20), -- MySql은 varchar를 쓴다.
-		       		   email varchar2(20), -- varchar2는 문자열
+-- number는 숫자 9999까지 작성가능하다.
+-- MySql은 varchar를 쓴다.
+-- varchar2는 문자열
+create table customer( no number(4)  primary key, 
+		       		   name varchar2(20), 
+		       		   email varchar2(20), 
 		       		   tel varchar2(20));
 
 -- 예2
