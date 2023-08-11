@@ -15,6 +15,7 @@ public class JDBC_Connect02 {
 		/** My-SQL JDBC Driver *********************************************/
 		String driver = "com.mysql.cj.jdbc.Driver";
 		String url = "jdbc:mysql://localhost/jsptest";
+		// 포트번호가 생략
 		/*******************************************************************/
 
 		Connection con = null;
