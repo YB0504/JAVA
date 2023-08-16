@@ -2,31 +2,36 @@ package p2023_08_16Pr;
 
 class Solution03 {
 	public int solution(int[] num_list) {
-		int answer = 1;
+		int answer = num_list.length;
 
-//		for (int i = 0; i < num_list.length; i++) {
-//			if (num_list.length >= 11) {
-//				answer += num_list[i];
-//			}else if(num_list.length <= 10) {
-//				answer *= num_list[i];
-//			}
-//		}
-		
-		
-		if (num_list.length >= 11) {
-            // 리스트의 길이가 11 이상일 때, 모든 원소의 합을 계산
-            for (int i = 0; i < num_list.length; i++) {
-                answer += num_list[i];
-            }
-        } else {
-            // 리스트의 길이가 10 이하일 때, 모든 원소의 곱을 계산
-            for (int i = 0; i < num_list.length; i++) {
-                answer *= num_list[i];
-            }
-        }
-
-		return answer;
+		// if문 안에서도 for문을 사용할 수 있다.
+		if (answer >= 11) {
+			int sum = 0;
+			for (int num : num_list) {
+				sum += num;
+			}
+			return sum;
+		} else {
+			int i = 1;
+			for (int num : num_list) {
+				i *= num;
+			}
+			return i;
+		}
 	}
 }
-
-
+//	int answer = 0;
+//
+//	if (num_list.length >= 11) {
+//    	for (int x : num_list) {
+//        	answer += x;
+//    }
+//	} else {
+//    	answer = 1;
+//    	for (int x : num_list) {
+//        	answer *= x;
+//    	}
+//	}
+//	return answer;
+//	}
+//}

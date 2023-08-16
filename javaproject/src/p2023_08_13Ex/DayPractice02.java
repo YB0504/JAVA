@@ -1,4 +1,4 @@
-package p2023_8_13Ex;
+package p2023_08_13Ex;
 
 class Solution01 {
     public String solution(String my_string, int k) {
