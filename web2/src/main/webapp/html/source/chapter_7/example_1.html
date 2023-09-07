@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Float With Overflow</title>
+    <style>
+        div.container { /* 반드시 (.) 앞에 주어진 태그에서만 사용할 수 있다. */
+            overflow: hidden;
+        }
+
+        div.item {
+            float: left;
+
+            margin: 0 3px;
+            padding: 10px;
+            border: 1px solid black; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">메뉴 - 1</div>
+        <div class="item">메뉴 - 2</div>
+        <div class="item">메뉴 - 3</div>
+        <div class="item">메뉴 - 4</div>
+    </div>
+</body>
+</html>
