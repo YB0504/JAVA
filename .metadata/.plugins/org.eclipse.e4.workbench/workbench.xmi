@@ -250,8 +250,9 @@
           <tags>persp.editorOnboardingCommand:Find Actions$$$Ctrl+3</tags>
           <tags>persp.editorOnboardingCommand:Show Key Assist$$$Ctrl+Shift+L</tags>
           <tags>persp.editorOnboardingCommand:New$$$Ctrl+N</tags>
-          <children xsi:type="basic:PartSashContainer" xmi:id="_VetCYUhXEe6EG84eDjkFFA" selectedElement="_VetCZ0hXEe6EG84eDjkFFA" horizontal="true">
+          <children xsi:type="basic:PartSashContainer" xmi:id="_VetCYUhXEe6EG84eDjkFFA" selectedElement="_VetCYkhXEe6EG84eDjkFFA" horizontal="true">
             <children xsi:type="basic:PartStack" xmi:id="_VetCYkhXEe6EG84eDjkFFA" elementId="topLeft" containerData="2500" selectedElement="_VetCY0hXEe6EG84eDjkFFA">
+              <tags>active</tags>
               <children xsi:type="advanced:Placeholder" xmi:id="_VetCY0hXEe6EG84eDjkFFA" elementId="org.eclipse.ui.navigator.ProjectExplorer" ref="_PNwBskhXEe6EG84eDjkFFA" closeable="true">
                 <tags>View</tags>
                 <tags>categoryTag:General</tags>
@@ -480,6 +481,7 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_PNmQsEhXEe6EG84eDjkFFA" elementId="org.eclipse.ui.editorss" selectedElement="_PNmQsUhXEe6EG84eDjkFFA">
+<<<<<<< Updated upstream
       <children xsi:type="basic:PartStack" xmi:id="_PNmQsUhXEe6EG84eDjkFFA" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_QpaM0EyIEe6uloIiAZIpbw">
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
@@ -504,6 +506,11 @@
           <tags>active</tags>
           <tags>activeOnClose</tags>
         </children>
+=======
+      <children xsi:type="basic:PartStack" xmi:id="_PNmQsUhXEe6EG84eDjkFFA" elementId="org.eclipse.e4.primaryDataStack">
+        <tags>org.eclipse.e4.primaryDataStack</tags>
+        <tags>EditorStack</tags>
+>>>>>>> Stashed changes
       </children>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_PNwBsEhXEe6EG84eDjkFFA" elementId="org.eclipse.jdt.ui.PackageExplorer" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Package Explorer" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/eview16/package.png" tooltip="" closeable="true">
@@ -530,6 +537,8 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view CommonNavigator.LINKING_ENABLED=&quot;0&quot; currentWorkingSetName=&quot;Aggregate for window 1693525002026&quot; org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets=&quot;0&quot;>&#xD;&#xA;&lt;lastRecentlyUsedFilters/>&#xD;&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
+      <tags>active</tags>
+      <tags>activeOnClose</tags>
       <menus xmi:id="_Vf1q0EhXEe6EG84eDjkFFA" elementId="org.eclipse.ui.navigator.ProjectExplorer">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -686,6 +695,7 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view CommonNavigator.LINKING_ENABLED=&quot;0&quot;>&#xD;&#xA;&lt;lastRecentlyUsedFilters/>&#xD;&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:Server</tags>
+      <tags>highlighted</tags>
       <menus xmi:id="_bXW30EhXEe6EG84eDjkFFA" elementId="org.eclipse.wst.server.ui.ServersView">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -785,7 +795,11 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_PILlMkhXEe6EG84eDjkFFA" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
+<<<<<<< Updated upstream
         <children xsi:type="menu:HandledToolItem" xmi:id="_87RCV0xHEe6uloIiAZIpbw" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_MWoEJEhXEe6EG84eDjkFFA"/>
+=======
+        <children xsi:type="menu:HandledToolItem" xmi:id="_Dc3XcEviEe6bRYbq_XgBxQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_MWoEJEhXEe6EG84eDjkFFA"/>
+>>>>>>> Stashed changes
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_PILlM0hXEe6EG84eDjkFFA" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -828,7 +842,7 @@
       <children xsi:type="menu:ToolBar" xmi:id="_B6SG4EhfEe6EG84eDjkFFA" elementId="org.eclipse.ui.WorkingSetModificationActionSet" visible="false">
         <tags>Draggable</tags>
       </children>
-      <children xsi:type="menu:ToolBar" xmi:id="_B6jzsEhfEe6EG84eDjkFFA" elementId="org.eclipse.ui.edit.text.actionSet.presentation">
+      <children xsi:type="menu:ToolBar" xmi:id="_B6jzsEhfEe6EG84eDjkFFA" elementId="org.eclipse.ui.edit.text.actionSet.presentation" visible="false">
         <tags>Draggable</tags>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_VfIgMEhXEe6EG84eDjkFFA" elementId="org.eclipse.wst.server.ui.internal.webbrowser.actionSet">
@@ -849,7 +863,14 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_PILlOkhXEe6EG84eDjkFFA" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
+<<<<<<< Updated upstream
         <children xsi:type="menu:HandledToolItem" xmi:id="_87RCZExHEe6uloIiAZIpbw" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_MWoDskhXEe6EG84eDjkFFA"/>
+=======
+        <children xsi:type="menu:HandledToolItem" xmi:id="_Dc6awEviEe6bRYbq_XgBxQ" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" enabled="false" type="Check" command="_MWoDskhXEe6EG84eDjkFFA"/>
+      </children>
+      <children xsi:type="menu:ToolBar" xmi:id="_D-1cEEviEe6bRYbq_XgBxQ" elementId="org.eclipse.ui.genericeditor.GenericEditor" visible="false">
+        <tags>Draggable</tags>
+>>>>>>> Stashed changes
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_PILlO0hXEe6EG84eDjkFFA" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -3708,7 +3729,11 @@
   <addons xmi:id="_MV4cxkhXEe6EG84eDjkFFA" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_MV4cx0hXEe6EG84eDjkFFA" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_MWF4EEhXEe6EG84eDjkFFA" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
+<<<<<<< Updated upstream
   <addons xmi:id="_8hFnwExHEe6uloIiAZIpbw" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+=======
+  <addons xmi:id="_CirAEEviEe6bRYbq_XgBxQ" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+>>>>>>> Stashed changes
   <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <categories xmi:id="_MWikAEhXEe6EG84eDjkFFA" elementId="org.eclipse.ui.category.edit" name="Edit"/>
   <categories xmi:id="_MWikAUhXEe6EG84eDjkFFA" elementId="org.eclipse.mylyn.wikitext.ui.editor.category" name="WikiText Markup Editing Commands" description="commands for editing lightweight markup"/>
