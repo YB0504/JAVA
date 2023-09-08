@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>if문02</title>
+</head>
+
+<body>
+	
+	<script>
+		// if ~ else if ~ else문
+		
+		// 키보드로 1 ~ 100점 사이의 점수를 입력 받아서 학점을 출력하는 프로그램 작성
+		// A학점 : 90 ~ 100
+		// B학점 : 80 ~ 89
+		// C학점 : 70 ~ 79
+		// D학점 : 60 ~ 69
+		// F학점 : 60 미만
+		
+		var s = prompt("0 ~ 100점 사이의 점수를 입력하세요.", "");
+		
+		if(s >= 90){
+			alert("A")
+		}else if(s >= 80){
+			alert("B")
+		}else if(s >= 70){
+			alert("C")
+		}else if(s >= 60){
+			alert("D")
+		}else{
+			alert("F")
+		}
+	</script>
+
+</body>
+
+</html>

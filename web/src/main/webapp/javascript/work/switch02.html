@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>switch ~ case문</title>
+</head>
+
+<body>
+	
+	<script>
+		// switch ~ case문
+		
+		var site = prompt("즐겨 사용하는 포털사이트를 입력해주세요", "")
+		
+		switch(site){
+			case "네이버" : url = "www.naver.com"
+							break; 	
+			case "다음" : url = "www.daum.net"
+							break; 	
+			case "네이트" : url = "www.nate.com"
+							break; 	
+			case "구글" : url = "www.google.com"
+							break; 	
+			default : alert("주소를 찾을 수 없습니다.")
+		}
+		
+		if(url){
+			// location객체 : 현재 웹페이지의 URL정보를 나타낸다.
+			// location.href : 현재 페이지의 전체 URL주소를 나타내는 문자열을 반환
+			// url변수에 들어가는 url값을 할당하여 해당 url주소로 이동한다.
+			location.href = "http://" + url;	
+		}
+	</script>
+
+</body>
+
+</html>
