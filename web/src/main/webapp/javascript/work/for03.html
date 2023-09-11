@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>for문</title>
+</head>
+
+<body>
+	<h3>키보드로 원하는 단을 입력 받아서 구구단 1개를 출력</h3>
+	<script>
+		var dan=prompt("원하는 구구단을 입력하세요", "");
+		
+		for(var i =1; i<=9; i++){
+			document.write(dan+ " * " +i+ " = " +dan * i+ "<br>")
+		}
+	</script><br><br><br><br>
+	
+	<h3>구구단 2 ~ 9단</h3>
+	<script>
+		for(var dan = 2; dan<=9; dan++){
+			document.write("["+dan+ "단] <br>")
+			for(var i=1; i<=9; i++){
+				document.write(dan+"*"+i+"="+dan*i+"<br>")
+			}
+			document.write("<br>")
+		}
+	</script><br><br><br><br>
+	
+	<h3>구구단 가로 출력</h3>
+	<script>
+		// 이스케이프 문자 사용 가능
+		for(var dan = 2; dan <= 9; dan++){
+			document.write("["+dan+ "단]	"+ "\t");
+		}
+		document.write("<br>")
+		for(var i = 1; i<=9; i++){
+			for(var j = 2; j <= 9; j++){
+				document.write(j+"*"+i+"="+j*i+"\t")
+			}
+			document.write("<br>")
+		}
+	</script>
+	
+	
+</body>
+
+</html>

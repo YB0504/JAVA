@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>클릭 이벤트 함수 호출</title>
+	<script>
+		var n1 = Number(prompt("정수1을 입력하세요.", ""));
+		var n2 = Number(prompt("정수2을 입력하세요.", ""));
+		
+		function plus(){
+			document.write("두 정수를 더한값 : "+(n1+n2));
+		}
+		function minus(){
+			document.write(n1-n2);
+		}
+		function mul(){
+			document.write(n1*n2);
+		}
+		function div(){
+			document.write(n1/n2);
+		}
+	</script>
+</head>
+
+<body>
+	<h3>클릭 이벤트로 함수 호출</h3>
+	<form>
+		<input type="button" value="+" onclick="plus()">
+		<input type="button" value="-" onclick="minus()">
+		<input type="button" value="*" onclick="mul()">
+		<input type="button" value="/" onclick="div()">
+	</form>
+
+</body>
+
+</html>

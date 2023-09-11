@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>재귀 함수</title>
+	<script>
+		// 재귀 함수 : 함수 안에서 자기 자신의 함수를 호출하는 함수
+
+		function f(n) {
+			if (n > 1) {
+				var result = n * f(n - 1);	// n! : n * f(n-1) * f(n-2)...1
+				return result;
+			} else {
+				return n;
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<h3>재귀함수를 이용하여 입력받은 정수의 팩토리얼을 출력</h3>
+	<script>
+		var n = prompt("팩토리얼을 구할 정수를 입력하세요.", "");
+
+		document.write(n + "! = " + f(n) + "<br>");
+
+
+		for (var i = n; i >= 1; i--) {
+			if (i == 1) {
+				document.write(i);
+			} else {
+				document.write(i + " * ")
+			}
+		}
+		document.write(" = " + f(n))
+	</script>
+
+</body>
+
+</html>

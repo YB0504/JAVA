@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>반복문 for문</title>
+</head>
+
+<body>
+	<!-- for문
+	for(초기값; 조건식; 증감식){
+		반복 실행할 문장;
+	}
+	-->
+
+	<script>
+		for (var i = 1; i <= 10; i++) {
+			document.write(i + "번 출력 <br>")
+		}
+	</script><br><br><br><br>
+
+	<h3>1 ~ 10까지의 합</h3>
+	<script>
+		sum = 0;
+		for (var i = 1; i <= 10; i++) {
+			sum += i;
+			document.write("sum = " + sum + "<br>")
+		}
+		document.write("총합 : " + sum + "<br>")
+	</script><br><br><br><br>
+
+	<h3>1 ~ 100까지 홀수, 짝수의 합</h3>
+	<script>
+		var even = 0;
+		var odd = 0;
+		for (var i = 1; i <= 100; i++) {
+			if (i % 2 == 0) {
+				even += i;
+			} else {
+				odd += i;
+			}
+		}
+		document.write("짝수의 합 : " +even+ "<br>")
+		document.write("홀수의 합 : " +odd+ "<br>")
+	</script>
+
+
+</body>
+
+</html>

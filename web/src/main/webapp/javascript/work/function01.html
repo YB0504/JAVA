@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>사용자 정의 함수</title>
+	<script>
+		// 사용자 정의 함수
+		function check(){			// 함수명은 대소문자를 구분한다.
+			alert("함수 호출 성공");
+		}
+	</script>
+</head>
+
+<body>
+	<!-- head태그에서 함수를 정의 하고 body태그에서 함수를 호출 
+		 순서를 반대로 하면 함수가 제대로 호출되지 않는다.
+	-->
+	<h3>매개 변수가 없는 함수</h3>
+	<!-- 방법 1. 함수 호출 -->
+	<script>
+		check();		// 함수 호출
+	</script>
+	
+	<!-- 방법 2. 이벤트를 이용해서 함수 호출 -->
+	<!-- click 이벤트의 handler를 만들어서 함수 호출 -->
+	<!-- 주로 이 방식으로 함수를 호출한다. -->
+	<input type="button" value="함수호출" onclick="check()">
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>while문</title>
+</head>
+
+<body>
+	<h3>while문을 이용한 구구단 출력</h3>
+	<script>
+		var dan = 2;
+		while (dan <= 9) {
+			document.write("[" + dan + "단]<br>");
+			var i = 1;
+			while (i <= 9) {
+				document.write(dan + " * " + i + " = " + dan * i + "<br>");
+				i++;
+			}
+			dan++;
+			document.write("<br>");
+		}
+
+	</script>
+
+</body>
+
+</html>

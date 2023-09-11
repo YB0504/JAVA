@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>과제</title>
+</head>
+
+<body>
+	<script>
+		document.write("<table border = '1' width = '300' align = 'center'>")
+			document.write("<caption style=font-weight:bold>구구단</caption>")
+		for (var dan = 2; dan <= 9; dan++) {
+			document.write("<th>" + dan + "단</th>");
+		}
+		document.write("</tr>")
+
+		document.write("<tr>")
+		for (var dan = 2; dan <= 9; dan++) {
+			document.write("<td>")
+			for (var i = 1; i <= 9; i++) {
+				document.write(dan + "*" + i + "=" + dan * i+"<br>")
+			}
+			document.write("</td>")
+		}
+		document.write("</tr>")
+	</script>
+</body>
+
+</html>

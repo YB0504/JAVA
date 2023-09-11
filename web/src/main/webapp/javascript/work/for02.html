@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>for문</title>
+</head>
+
+<body>
+
+	<h3>배열을 활용하는 for문</h3>
+	<script>
+		// 배열의 값을 바로 초기화하는 형식
+		var col = ['red', 'orange', 'yellow', 'green', 'blue', 'navy', 'purple']
+		var font = ['고딕', '명조', '궁서', '바탕', '돋움', '견고딕', '새고딕']
+
+		// 속성을 사용할때는 ""안에 작성하여야 한다.
+		for (var i = 1; i <= 7; i++) {
+			document.write("<font size = " + i +
+				"      color = " + col[i - 1] +
+				"      face = " + font[i - 1] +
+				">자바 스크립트</font><br>")
+		}
+	</script>
+
+</body>
+
+</html>
