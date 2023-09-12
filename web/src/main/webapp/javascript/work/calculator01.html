@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script>
+		var num = 0;
+		var symbol;
+
+		function btn_click(a) {
+			resultFld.value += a;
+		}
+
+		function cal(b) {
+			var firstNum = (document.getElementById("resultFld").value);
+			num = firstNum;
+			symbol = b;
+			return document.getElementById("resultFld").value = "";
+		}
+
+		function compute() {
+			var secNum = parseFloat(document.getElementById("resultFld").value);
+			var result;
+			switch (symbol) {
+				case '+': result = Number(num) + Number(secNum);
+					document.getElementById("resultFld").value = result;
+					break;
+				case '-': result = Number(num) - Number(secNum);
+					document.getElementById("resultFld").value = result;
+					break;
+				case '*': result = Number(num) * Number(secNum);
+					document.getElementById("resultFld").value = result;
+					break;
+				case '/': result = Number(num) / Number(secNum);
+					document.getElementById("resultFld").value = result;
+					break;
+				case 'sqrt': result = Math.sqrt(Number(secNum));
+					document.getElementById("resultFld").value = result;
+					break;
+			}
+		}
+
+		function clear_del() {
+			document.getElementById("resultFld").value = "";
+			num = 0;
+		}
+
+	</script>
+</head>
+
+<body>
+	<table border="1" align="center" class="table table-bordered">
+		<caption>계산기</caption>
+		<tr>
+			<td colspan="4">
+				<input type="text" id="resultFld">
+			</td>
+		</tr>
+		<tr align="center">
+			<td><input type="button" value="7" onclick="btn_click(7)"></td>
+			<td><input type="button" value="8" onclick="btn_click(8)"></td>
+			<td><input type="button" value="9" onclick="btn_click(9)"></td>
+			<td><input type="button" value="/" onclick="cal('/')"></td>
+		</tr>
+		<tr align="center">
+			<td><input type="button" value="4" onclick="btn_click(4)"></td>
+			<td><input type="button" value="5" onclick="btn_click(5)"></td>
+			<td><input type="button" value="6" onclick="btn_click(6)"></td>
+			<td><input type="button" value="*" onclick="cal('*')"></td>
+
+		</tr>
+		<tr align="center">
+			<td><input type="button" value="1" onclick="btn_click(1)"></td>
+			<td><input type="button" value="2" onclick="btn_click(2)"></td>
+			<td><input type="button" value="3" onclick="btn_click(3)"></td>
+			<td><input type="button" value="-" onclick="cal('-')"></td>
+		</tr>
+		<tr align="center">
+			<td><input type="button" value="0" onclick="btn_click(0)"></td>
+			<td><input type="button" value="." onclick="btn_click('.')"></td>
+			<td><input type="button" value="sqrt" onclick="cal('sqrt')"></td>
+			<td><input type="button" value="+" onclick="cal('+')"></td>
+		</tr>
+		<tr>
+			<th colspan="2">
+				<input type="button" value="=" onclick="compute()">
+			</th>
+			<th colspan="2">
+				<input type="button" value="Clear" onclick="clear_del()">
+			</th>
+		</tr>
+	</table>
+
+</body>
+
+</html>
