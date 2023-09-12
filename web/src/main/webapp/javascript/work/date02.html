@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Date 객체</title>
+	<style>
+		/* mytime id값에 css적용 */
+		#mytime {
+			background-color: olive;
+		}
+	</style>
+	<script>
+		function show() {
+			var t = new Date();
+
+			// 년, 월, 일
+			var y = t.getFullYear();		// 년
+			var m = t.getMonth() + 1;		// 월(0 ~ 11로 구해지기 때문에 1을 더해야 한다.)
+			var d = t.getDate();			// 일
+
+			// 시, 분, 초, 요일
+			var h = t.getHours();			// 시간
+			var mi = t.getMinutes();		// 분
+			var s = t.getSeconds();			// 초
+
+			var time = y + "-" + m + '-' + d + "	" + h + ":" + mi + ':' + s
+
+			// 해당 id값의 input태그를 구해오는 메소드
+			// 여기서 value 속성은 time값을 value값으로 설정하라는 의미
+			document.getElementById('mytime').value = time;
+
+			// 선언자가 없기 때문에 전역변수로 생성
+			w = setTimeout('show()', 1000);		// 1초에 한번씩 show()함수 호출
+		}
+		function stop() {
+			// setTimeout을 변수로 받고, stop함수에서 지정해줘야 된다.
+			clearTimeout(w);					// setTimeout() 으로 실행한 명령을 취소함
+		}
+	</script>
+</head>
+
+<body onLoad="show()">
+	<!-- onLoad 이벤트 : 페이지가 로딩되면서 바로 해당 함수가 실행된다. -->
+
+	현재 시간 : <input type="text" id="mytime"><br><br>
+
+	<input type="button" value="start" onClick="show()">
+	<input type="button" value="stop" onclick="stop()">
+
+</body>
+
+</html>

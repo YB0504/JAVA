@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>String 객체의 메소드</title>
+</head>
+
+<body>
+	<h3>String 객체의 메소드</h3>
+	<script>
+		var t = "Hello Thans you good luck to you";
+		document.write(t+"<br>");
+		document.write("<br>");
+
+		// charAt() : 해당 인덱스 넘버의 문자를 추출
+		document.write("t.charAt(16) : "+t.charAt(16) + "<br>");
+		document.write("<br>");
+
+		// indexOf() : 가장 먼저 나오는 해당 문자열의 인덱스 번호를 구해준다.
+		document.write("t.indexOf('you') : "+t.indexOf('you') + "<br>");
+		document.write("<br>");
+
+		// indexOf(문자열, 인덱스 번호) 
+		// : 해당 인덱스 번호 이후에 나오는 문자열의 인덱스 번호를 구해준다.
+		document.write("t.indexOf('you', 16) : "+t.indexOf('you', 16) + "<br>");
+		document.write("<br>");
+
+		// lastIndexOf() : 끝에서부터 가장 먼저 나오는 
+		// : 해당 문자열의 인덱스 번호를 구해준다.
+		document.write("t.lastIndexOf('you') : "+t.lastIndexOf('you') + "<br>");
+		document.write("<br>");
+
+		// match() : 가장 먼저 일치되는 문자를 반환
+		document.write("t.match('luck') : "+t.match('luck') + "<br>");
+		document.write("<br>");
+
+		// toUpperCase() : 대문자 변환
+		document.write("t.toUpperCase() : "+t.toUpperCase() + "<br>");
+		document.write("<br>");
+
+		// toLowerCase() : 소문자 변환
+		document.write("t.toLowerCase() : "+t.toLowerCase() + "<br>");
+		document.write("<br>");
+
+		// subString(start index, end index)
+		// : start 인덱스 번호부터 end index-1 인덱스 번호의 문자를 추출
+		document.write("t.substring(6, 12) : "+t.substring(6, 12) + "<br>");
+		document.write("<br>");
+
+		// substr(start index, 추출할 문자열의 길이)
+		// : 해당 인덱스 번호부터 길이 만큼의 문자를 추출
+		document.write("t.substr(21, 4) : "+t.substr(21, 4) + "<br>");
+		document.write("<br>");
+
+		// split(구분기호)
+		// : 구분기호를 이용하여 문자들을 분리해서 배열로 리턴
+		var s = t.split(" ");
+		document.write("s[0] : "+s[0] + "<br>");
+		document.write("s[1] : "+s[1] + "<br>");
+		document.write("s[2] : "+s[2] + "<br>");
+		document.write("s[3] : "+s[3] + "<br>");
+		document.write("s[4] : "+s[4] + "<br>");
+		document.write("s[5] : "+s[5] + "<br>");
+		document.write("s[6] : "+s[6] + "<br>");
+		document.write("<br>");
+
+		
+		document.write("for문을 활용한 split메소드"+"<br>");
+		for (var i = 0; i < s.length; i++) {
+			document.write(s[i] + "<br>");
+		}
+
+	</script>
+
+</body>
+
+</html>
