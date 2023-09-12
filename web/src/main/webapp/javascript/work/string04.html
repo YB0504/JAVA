@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>String 객체</title>
+</head>
+
+<body>
+	<h3>마지막 네 자리를 별 표시 하기</h3>
+	<script>
+		var num = prompt("핸드폰 번호를 입력하세요.", "");
+		var result1 = num.substring(0,7) + "****";
+		var result2 = num.substr(0,7) + "****";
+		
+		document.write(result1 + "<br>");
+		document.write(result2 + "<br>");
+	</script>
+
+</body>
+
+</html>
