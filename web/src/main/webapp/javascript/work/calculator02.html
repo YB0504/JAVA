@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>계산기</title>
+	<!-- 입력한 값을 나타나도록 하는 함수 1
+		 = 버튼을 누를 때 eval함수로 연산을 하고 출력하는 함수 2
+		 clear버튼을 누를 때 값이 지워지는 함수 3
+		 sqrt제곱근을 구해주는 함수4-->
+	<script>
+		function ipt(a) {
+			calculator.value += a;
+
+		}
+		function cal_sum() {
+			/*
+			if(ipt('') == '+'){
+				document.getElementById('calculator').value = eval('a+a');
+			}else if(ipt('') == '-'){
+				document.getElementById('calculator').value = eval('a-a');
+			}else if(ipt('') == '*'){
+				document.getElementById('calculator').value = eval('a*a');
+			}else if(ipt('') == '/'){
+				document.getElementById('calculator').value = eval('a/a');
+			}*/
+
+			document.getElementById('calculator').value = eval(calculator.value);
+		}
+		function cal_clear() {
+			document.getElementById("calculator").value = "";
+		}
+		function cal_sqrt() {
+			document.getElementById('calculator').value = Math.sqrt(document.getElementById('calculator').value);
+		}
+	</script>
+
+</head>
+
+<body>
+	<table border="1" align="center" style="border-collapse: collapse;">
+		<caption>계산기</caption>
+		<tr>
+			<td colspan="4">
+				<input type="text" id="calculator" name="calculator">
+			</td>
+		</tr>
+		<tr align="center">
+			<td><input type="button" value="7" onclick="ipt(7)"></td>
+			<td><input type="button" value="8" onclick="ipt(8)"></td>
+			<td><input type="button" value="9" onclick="ipt(9)"></td>
+			<td><input type="button" value="/" onclick="ipt('/')"></td>
+		</tr>
+		<tr align="center">
+			<td><input type="button" value="4" onclick="ipt(4)"></td>
+			<td><input type="button" value="5" onclick="ipt(5)"></td>
+			<td><input type="button" value="6" onclick="ipt(6)"></td>
+			<td><input type="button" value="*" onclick="ipt('*')"></td>
+		</tr>
+		<tr align="center">
+			<td><input type="button" value="1" onclick="ipt(1)"></td>
+			<td><input type="button" value="2" onclick="ipt(2)"></td>
+			<td><input type="button" value="3" onclick="ipt(3)"></td>
+			<td><input type="button" value="-" onclick="ipt('-')"></td>
+		</tr>
+		<tr align="center">
+			<td><input type="button" value="0" onclick="ipt(0)"></td>
+			<td><input type="button" value="." onclick="ipt('.')"></td>
+			<td><input type="button" value="sqrt" onclick="cal_sqrt()"></td>
+			<td><input type="button" value="+" onclick="ipt('+')"></td>
+		</tr>
+		<tr align="center">
+			<td colspan="2">
+				<input type="button" value="=" onclick="cal_sum()">
+			</td>
+			<td colspan="2">
+				<input type="reset" value="Clear" onclick="cal_clear()">
+			</td>
+		</tr>
+	</table>
+
+</body>
+
+</html>

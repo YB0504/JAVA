@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>DOM Basic</title>
+	<script>
+		// 이벤트를 연결
+		window.onload = function(){
+			// h1 선택자(태그) 한개를 구해온다.
+			// 동일한 선택자가 있을 때는 첫번째 선택자만 구해온다.
+			var header = document.querySelector('h1');
+			
+			// 문서 객체 조작
+			header.style.color = 'orange';			// 글자색
+			header.style.background = 'red';		// 배경색
+			header.innerHTML = 'quertSelector';
+			// 해당id를 가진 태그 안의 값을 변경시킨다.
+		}
+	</script>
+</head>
+
+<body>
+	<h1>Header</h1>
+	<h1>Header</h1>
+	<h1>Header</h1>
+</body>
+
+</html>

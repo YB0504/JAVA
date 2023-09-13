@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Focus, Blur Event</title>
+	<script>
+		
+		// 자바스크립트는 html이 실행된 다음에 사용 되어야 하기 때문에
+		// 함수 윗쪽에 있는 id,passwd는 정상적으로 인식되지 않는다.
+		// var id = document.getElementById("id");
+		// var passwd = document.getElementById('passwd');
+
+		// 함수 안쪽에 id값을 가져오는 메소드를 정상적으로 인식해서 동작한다.
+		function id_focus() {			// focus 이벤트
+			var id = document.getElementById("id");
+			id.value = '';	// focus 이벤트가 발생하면 value값이 공백으로 나온다.
+		}
+		function id_blur() {			// blur 이벤트
+			var id = document.getElementById("id");
+			id.value = id.defaultValue;
+			// 초기값을 구해오는 속성(대,소문자를 구분한다.)
+		}
+		function passwd_focus() {
+			var passwd = document.getElementById('passwd');
+			passwd.value = '';
+		}
+		function passwd_blur() {
+			var passwd = document.getElementById('passwd');
+			passwd.value = passwd.defaultValue;
+		}
+	</script>
+</head>
+
+<body>
+	<form>
+		아이디 : <input type="text" id="id" value="아이디 입력" 
+					onFocus="id_focus()" onBlur="id_blur()"><br>
+		비밀번호 : <input type="text" id="passwd" value="비밀번호 입력" 
+					onFocus="passwd_focus()" onBlur="passwd_blur()"><br>
+	</form>
+</body>
+
+</html>

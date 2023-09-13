@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Submit Event</title>
+	<script>
+		function check(){
+			// name값으로 값을 가져올때는 필요없다.
+			var name = document.getElementById('name');
+			var email = document.getElementById('email');
+			
+			// window.document.이 생략되어 있다.
+			if(myform.name.value == ""){		// name값으로 설정
+//			if(name.value == ""){				// id값으로 설정
+				alert('이름을 입력하세요.');
+				name.focus();
+				return false;
+			}
+			
+			if(myform.email.value == ""){
+//			if(email.value == ""){
+				alert('이메일을 입력하세요.');
+				email.focus();
+				return false;
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<!-- 함수앞에 return을 작성하면 값을 입력하지 않고 
+		 전송버튼을 눌렀을때 jsp파일로 전송시키지 않도록 한다. 
+	-->
+	<!-- form태그에 name값을 설정하고, 모든 input태그에 name값을 반드시 설정해야 한다. -->
+	<form name="myform" method="post" action="send.jsp" onsubmit="return check()">
+		이름 : <input type="text" id="name" name="name" autofocus><br>
+		이메일 : <input type="text" id="email" name="email"><br>
+		<input type="submit" value="send">
+
+	</form>
+
+</body>
+
+</html>

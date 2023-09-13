@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>DOM Basic</title>
+	<script>
+		// 이벤트를 연결
+		window.onload = function () {
+			// h1 선택자를 모두 구해온다.
+			// 배열 형태로 리턴한다.
+			var headers = document.querySelectorAll('h1');
+
+			// for문으로 headers변수의 배열 값을 header변수로 받는다.
+			for (var i = 0; i < headers.length; i++) {
+				// 변수 선언
+				var header = headers[i];
+
+				// 문서 객체 조작
+				header.style.color = 'white';			// 글자색
+				header.style.background = 'black';		// 배경색
+				header.innerHTML = 'querySelectorAll';
+				// 해당id를 가진 태그 안의 값을 변경시킨다.	
+			}
+
+		}
+	</script>
+</head>
+
+<body>
+	<h1>Header</h1>
+	<h1>Header</h1>
+	<h1>Header</h1>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Focus, Blur Event</title>
+</head>
+
+<body>
+	<!-- form태그와 script태그의 위치가 바뀌면 id값을 가져오는 것이 제대로 처리되지 않는다. -->
+	<form>
+		아이디 : <input type="text" id="id" value="아이디 입력"
+				onFocus="id_focus()" onBlur="id_blur()"><br>
+		비밀번호 : <input type="text" id="passwd" value="비밀번호 입력"
+				onFocus="passwd_focus()" onBlur="passwd_blur()"><br>
+	</form>
+	<script>
+		var id = document.getElementById("id");
+		var passwd = document.getElementById('passwd');
+		
+		// placeholder로 만들면 focus이벤트가 들어가도 초기값이 유지된다.
+		function id_focus(){			// focus 이벤트
+			id.value = '';	// focus 이벤트가 발생하면 value값이 공백으로 나온다.
+		}
+		function id_blur(){				// blur 이벤트
+			id.value = id.defaultValue;
+			// 초기값을 구해오는 속성(대,소문자를 구분한다.)
+		}
+		function passwd_focus(){
+			passwd.value = '';
+		}
+		function passwd_blur(){
+			passwd.value = passwd.defaultValue;
+		}
+	</script>
+
+</body>
+
+</html>

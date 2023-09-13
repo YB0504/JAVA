@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>DOM Basic</title>
+	<script>
+		// 이벤트를 연결
+		window.onload = function(){
+			// 문서 객체 선택
+			var header = document.getElementById('header')
+			
+			// 문서 객체 조작
+			header.style.color = 'orange';			// 글자색
+			header.style.background = 'red';		// 배경색
+			header.innerHTML = 'From JavaScript';
+			// 해당id를 가진 태그 안의 값을 변경시킨다.
+		}
+	</script>
+</head>
+
+<body>
+	<h1 id="header">Header</h1>
+</body>
+
+</html>

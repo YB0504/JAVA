@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>KeyUp Event</title>
+	<!-- 주로 값의 크기가 정해져 있을 때 사용한다. -->
+	<script>
+		function move() {
+			// id값 가져오기
+			var jumin1 = document.getElementById('jumin1');
+			var jumin2 = document.getElementById('jumin2');
+
+			// 주민번호 앞자리의 길이가 6자리가 되었다면 focus를 뒷자리로 넘겨준다.
+			// 주민번호 앞자리의 값을 구해오고 length 속성으로 길이값을 구한다.
+			if (jumin1.value.length == 6) {
+				jumin2.focus();
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<form>
+		<!-- keyup 이벤트는 focus를 넘겨주는 곳에 작성해야한다. -->
+		주민번호 :
+		<input type="text" size="6" maxlength="6" id="jumin1" onkeyup="move()" autofocus>
+		<input type="text" size="7" maxlength="7" id="jumin2">
+	</form>
+</body>
+
+</html>

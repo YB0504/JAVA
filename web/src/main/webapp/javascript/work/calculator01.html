@@ -4,6 +4,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
+	<!-- 입력한 값을 나타나도록 하는 함수 1
+		 = 버튼을 누를 때 eval함수로 연산을 하고 출력하는 함수 2
+		 clear버튼을 누를 때 값이 지워지는 함수 3
+		 sqrt제곱근을 구해주는 함수-->
 	<script>
 		var num = 0;
 		var symbol;
@@ -41,7 +45,7 @@
 			}
 		}
 
-		function clear_del() {
+		function del() {
 			document.getElementById("resultFld").value = "";
 			num = 0;
 		}
@@ -50,7 +54,7 @@
 </head>
 
 <body>
-	<table border="1" align="center" class="table table-bordered">
+	<table border="1" align="center" style="border-collapse: collapse;">
 		<caption>계산기</caption>
 		<tr>
 			<td colspan="4">
@@ -87,7 +91,7 @@
 				<input type="button" value="=" onclick="compute()">
 			</th>
 			<th colspan="2">
-				<input type="button" value="Clear" onclick="clear_del()">
+				<input type="button" value="Clear" onclick="del()">
 			</th>
 		</tr>
 	</table>
