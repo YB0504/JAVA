@@ -4,10 +4,15 @@
 <head>
 	<meta charset="UTF-8">
 	<title>회원 가입 폼</title>
+	<script>
+		function check(){
+			
+		}
+	</script>
 </head>
 
 <body>
-	<form method="post" action="member.jsp">
+	<form method="post" action="member.jsp" onsubmit="return check()">
 		<table border="1" width="600" align="center">
 			<caption>회원가입</caption>
 			<tr>
@@ -114,17 +119,13 @@
 			<tr>
 				<th>자기<br>소개</th>
 				<td>
-					<textarea rows="5" cols="70" name="intro" id="intro"
-					placeholder="100자 이내로 입력하세요."></textarea>
+					<textarea rows="5" cols="70" name="intro" id="intro" placeholder="100자 이내로 입력하세요."></textarea>
 				</td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
 					<input type="submit" value="회원가입">
 					<input type="reset" value="취소">
-					
-					<!-- 이미지 버튼 : 전송기능을 가지고 있다. -->
-					<input type="image" src="img/clock.jpg" width="30">
 				</td>
 			</tr>
 		</table>
