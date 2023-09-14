@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Radio 객체</title>
+	<script>
+		function check(){
+			var r = document.getElementById('r');
+			var b = document.getElementById('b');
+			var y = document.getElementById('y');
+			
+			// 해당 radio버튼에 체크가 된다면 value 값을 가져와서 bgcolor에 전달
+			if(r.checked) document.bgColor = r.value;
+			if(b.checked) document.bgColor = b.value;
+			if(y.checked) document.bgColor = y.value;
+		}
+	</script>
+</head>
+
+<body>
+	<form>
+		<!-- 
+			radio버튼이 단일 선택되기 위해서는 name값을 동일하게 작성해서 그룹화 시켜줘야 한다.
+			radio버튼도 클릭이벤트가 발생한다.
+		-->
+		<input type="radio" id="r" name="color" value="red" onclick="check()">Red
+		<input type="radio" id="b" name="color" value="blue" onclick="check()">Blue
+		<input type="radio" id="y" name="color" value="yellow" onclick="check()">Yellow
+	</form>
+
+</body>
+
+</html>

@@ -8,6 +8,16 @@
 		 = 버튼을 누를 때 eval함수로 연산을 하고 출력하는 함수 2
 		 clear버튼을 누를 때 값이 지워지는 함수 3
 		 sqrt제곱근을 구해주는 함수4-->
+	<style>
+		.btn{
+			width: 50px;
+			height: 50px;
+			background-color: rgb(109, 104, 111);
+			color: rgb(255, 255, 255);
+			font-size: 20px;
+			border-radius: 50%;
+		}
+	</style>
 	<script>
 		function ipt(a) {
 			calculator.value += a;
@@ -40,44 +50,45 @@
 <body>
 	<table border="1" align="center" style="border-collapse: collapse;">
 		<caption>계산기</caption>
-		<tr>
+		<tr align="center">
 			<td colspan="4">
 				<input type="text" id="calculator" name="calculator">
 			</td>
 		</tr>
 		<tr align="center">
-			<td><input type="button" value="7" onclick="ipt(7)"></td>
-			<td><input type="button" value="8" onclick="ipt(8)"></td>
-			<td><input type="button" value="9" onclick="ipt(9)"></td>
-			<td><input type="button" value="/" onclick="ipt('/')"></td>
+			<td><input type="button" value="7" class="btn" onclick="ipt(7)"></td>
+			<td><input type="button" value="8" class="btn" onclick="ipt(8)"></td>
+			<td><input type="button" value="9" class="btn" onclick="ipt(9)"></td>
+			<td><input type="button" value="/" class="btn" onclick="ipt('/')"></td>
 		</tr>
 		<tr align="center">
-			<td><input type="button" value="4" onclick="ipt(4)"></td>
-			<td><input type="button" value="5" onclick="ipt(5)"></td>
-			<td><input type="button" value="6" onclick="ipt(6)"></td>
-			<td><input type="button" value="*" onclick="ipt('*')"></td>
+			<td><input type="button" value="4" class="btn" onclick="ipt(4)"></td>
+			<td><input type="button" value="5" class="btn" onclick="ipt(5)"></td>
+			<td><input type="button" value="6" class="btn" onclick="ipt(6)"></td>
+			<td><input type="button" value="*" class="btn" onclick="ipt('*')"></td>
 		</tr>
 		<tr align="center">
-			<td><input type="button" value="1" onclick="ipt(1)"></td>
-			<td><input type="button" value="2" onclick="ipt(2)"></td>
-			<td><input type="button" value="3" onclick="ipt(3)"></td>
-			<td><input type="button" value="-" onclick="ipt('-')"></td>
+			<td><input type="button" value="1" class="btn" onclick="ipt(1)"></td>
+			<td><input type="button" value="2" class="btn" onclick="ipt(2)"></td>
+			<td><input type="button" value="3" class="btn" onclick="ipt(3)"></td>
+			<td><input type="button" value="-" class="btn" onclick="ipt('-')"></td>
 		</tr>
 		<tr align="center">
-			<td><input type="button" value="0" onclick="ipt(0)"></td>
-			<td><input type="button" value="." onclick="ipt('.')"></td>
-			<td><input type="button" value="sqrt" onclick="cal_sqrt()"></td>
-			<td><input type="button" value="+" onclick="ipt('+')"></td>
+			<td><input type="button" value="0" class="btn" onclick="ipt(0)"></td>
+			<td><input type="button" value="." class="btn" onclick="ipt('.')"></td>
+			<td><input type="button" value="sqrt" class="btn" onclick="cal_sqrt()"></td>
+			<td><input type="button" value="+" class="btn" onclick="ipt('+')"></td>
 		</tr>
 		<tr align="center">
 			<td colspan="2">
-				<input type="button" value="=" onclick="cal_sum()">
+				<input type="button" value="=" class="btn" onclick="cal_sum()">
 			</td>
 			<td colspan="2">
-				<input type="reset" value="Clear" onclick="cal_clear()">
+				<input type="reset" value="C" class="btn" onclick="cal_clear()">
 			</td>
 		</tr>
 	</table>
+	<P><input type="button" value="이전 페이지로 이동" onclick="history.back()"></P>
 
 </body>
 

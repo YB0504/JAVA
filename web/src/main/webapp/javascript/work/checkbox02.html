@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Checkbox 객체</title>
+	<script>
+		function copy(){
+			var address1 = document.getElementById('address1');
+			var address2 = document.getElementById('address2');
+			
+			if(address1.value == ''){
+				alert('주소를 입력하세요');
+				address1.focus();
+				return false;	// copy함수를 빠져나가게 해준ㄴ다.
+			}
+			// 입력된 주소를 배송지 주소로 복사
+			address2.value = address1.value;
+		}
+	</script>
+</head>
+
+<body>
+	<form>
+		주소 : <input type="text" id="address1"><br>
+		배송지 주소 : <input type="text" id="address2"><br>
+		
+		<input type="checkbox" onClick="copy()">주소복사
+	</form>
+
+</body>
+
+</html>
