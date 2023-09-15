@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>외부 js파일 불러오기</title>
+
+	<!-- CDN 방식 -->
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+	<script>
+		// 해당 태그만 구해와서 .으로 연결된 함수를 통해서 실행한다.
+		$(function () {
+			// id 값이 sample1으로 되어있는 태그를 구해온다.
+			// $('#sample1').hide();
+			$('div').hide();
+		})
+	</script>
+
+	<!-- 외부 js파일 불러오기 -->
+	<script src="script.js"></script>
+</head>
+
+<body>
+	<div id="sample1">이 div 지우기</div>
+	div 태그 안의 내용이 지워진다.
+
+</body>
+
+</html>
