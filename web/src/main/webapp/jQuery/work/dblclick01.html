@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>dblclick 이벤트(더블클릭)</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script>
+		// dblclick 이벤트 : 특정 태그(button)를 더블클릭하여 이벤트를 처리할 때 사용한다.
+		$(document).ready(function(){
+			$('button').dblclick(function(){
+				$('img').attr('src', 'sea.jpg')
+						.attr('title', '바다')
+			})
+		})
+	</script>
+</head>
+
+<body>
+	<button>더블 클릭</button>
+	<p><img src="flower.jpg" title="꽃"></p>
+</body>
+
+</html>

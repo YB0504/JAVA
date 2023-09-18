@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>후손태그가 있는 jQuery (1)</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	
+	<script>
+		$(function(){
+			// 해당 class값의 후손태그인 strong태그를 불러와서 css를 적용
+			$('.1 strong').css('color', 'red');
+			$('.2 strong').css('color', 'blue');
+			$('.3 strong').css('color', 'orange');
+			$('.4 strong').css('color', 'green');
+		});
+	</script>
+</head>
+
+<body>
+	
+	<ul>
+		<!-- strong태그 안의 내용은 강조되어 출력된다. -->
+		<li class="1"><strong>후손태그</strong> 부모태그 부모태그</li>
+		<li class="2"><strong>후손태그</strong> 부모태그 부모태그</li>
+		<li class="3"><strong>후손태그</strong> 부모태그 부모태그</li>
+		<li class="4"><strong>후손태그</strong> 부모태그 부모태그</li>
+	</ul>
+
+</body>
+
+</html>

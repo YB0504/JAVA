@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>click 이벤트</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script>
+		$(function(){
+			// a태그값을 가져와서 해당 텍스트 링크에 클릭이벤트 설정
+			$('a').click(function(){
+				$('img').attr('src', 'sea.jpg')
+						.attr('title', '바다')
+				//alert('사진 변경');	// sea.jpg가 화면을 전부 차지하게 되버린다.
+				return false;		// 하이퍼링크 내용을 실행시키지 않는다.
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<a href="sea.jpg">사진 변경</a>
+	<p><img src="flower.jpg" title="꽃"></p>
+</body>
+
+</html>

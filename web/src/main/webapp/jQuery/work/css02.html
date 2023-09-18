@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery css적용(2)</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// 해당 id값의 태그를 불러와서 css적용
+			$('#first').css('color','red');
+			$('#second').css('color','orange');
+			$('#third').css('color','yellow');
+			$('#fourth').css('color','green');
+		});
+	</script>
+</head>
+
+<body>
+	<!-- ul태그로 순서 없는 목록을 생성 -->
+	<ul>
+		<li id="first">흐어어어어어어어어어어어어</li>
+		<li id="second">피곤피곤피곤피곤피곤피곤피곤</li>
+		<li id="third">으어어어어어어어어어어어어</li>
+		<li id="fourth">흐어어어어어어어어어어어어</li>
+	</ul>
+</body>
+
+</html>

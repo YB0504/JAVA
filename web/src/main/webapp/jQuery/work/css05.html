@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>후손태그가 있는 jQuery (2)</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script>
+		$(document).ready(function(){
+			// li 태그의 모든 후손태그를 불러와서 css를 적용
+			$('li *').css('color', 'blue')
+		})
+	</script>
+</head>
+
+<body>
+	
+	<ul>
+		<li><strong>후손 태그 자리에 *</strong> 로 모든 후손태그에 css적용</li>
+		<li><span>후손 태그 자리에 *</span> 로 모든 후손태그에 css적용</li>
+		<li><em>후손 태그 자리에 *</em> 로 모든 후손태그에 css적용</li>
+		<li>부모 태그만 존재하는 텍스트</li>
+	</ul>
+
+</body>
+
+</html>

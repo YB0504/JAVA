@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>toggle()</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	
+	<script>
+		// div태그에 toggle()함수를 적용
+		$(document).ready(function(){
+			$('button').click(function(){
+				// toggle() : 해당 태그의 내용을 보였다가 사라지게 한다. 
+				$('div').toggle();
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<button>start</button>
+	<div>출력1</div>
+	<div>출력2</div>
+	<div>출력3</div>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>click이벤트 attr함수</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script>
+		$(document).ready(function(){
+			// id값이 b1인 태그를 가져와서 click이벤트를 실행할 click함수 설정
+			$('#b1').click(function(){
+				// img 태그안의 속성의 내용을 attr()함수로 변경하고, 크기 값을 설정할 수 있다.
+				$('img').attr('src', 'sea.jpg')
+						.attr('title', '바다')
+						.attr('width', 150)
+						.attr('height', 150)
+				alert('사진 변경')
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<input type="button" value="사진 변경" id="b1">
+	<p><img src="flower.jpg" title="꽃"></p>
+</body>
+
+</html>

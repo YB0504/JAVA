@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery css적용(3)</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script>
+		$(document).ready(function(){
+			// 태그가 class값으로 되어있을 때는 (.)으로 불러와서 사용한다.
+			$('.1').css('color', 'red');
+			$('.2').css('color', 'blue');
+			$('.3').css('color', 'orange');
+			$('.4').css('color', 'green');
+		})
+	</script>
+</head>
+
+<body>
+	<ul>
+		<li class="1">class값을 이용한 jQuery와 css적용</li>
+		<li class="2">class값을 이용한 jQuery와 css적용</li>
+		<li class="3">class값을 이용한 jQuery와 css적용</li>
+		<li class="4">class값을 이용한 jQuery와 css적용</li>
+	</ul>
+
+</body>
+
+</html>

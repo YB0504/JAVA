@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>click이벤트 eq필터 활용</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script>
+		// eq필터 : 특정 태그 안에 지정한 태그의 순서를 구해주는 필터 선택자
+		$(function(){
+			$('a:eq(0)').click(function(){	// 첫번째 a태그
+				$('img').attr('src', 'flower.jpg')
+						.attr('title', '꽃')
+				return false;
+			});
+			$('a:eq(1)').click(function(){	// 두번째 a태그
+				$('img').attr('src', 'sea.jpg')
+						.attr('title', '바다')
+				return false;
+			});
+			$('a:eq(2)').click(function(){	// 세번째 a태그
+				$('img').attr('src', 'Jellyfish.jpg')
+						.attr('title', '해파리')
+				return false;
+			});
+			$('a:eq(3)').click(function(){	// 네번째 a태그 
+				$('img').attr('src', 'building.jpg')
+						.attr('title', '건물')
+				return false;
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<ul>
+		<!-- id값이 설정되어있지 않기 때문에 태그의 순서를 알 수 없다. -->
+		<li><a href="flower.jpg">꽃</a></li>
+		<li><a href="sea.jpg">바다</a></li>
+		<li><a href="Jellyfish.jpg">해파리</a></li>
+		<li><a href="building.jpg">건물</a></li>
+	</ul>
+	<p><img src="flower.jpg" title="꽃"></p>
+</body>
+
+</html>
