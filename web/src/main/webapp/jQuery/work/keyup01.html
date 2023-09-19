@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>keyup 이벤트</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script>
+		$(function () {
+			$('#jumin1').keyup(function () {	// keyup이벤트
+				// val()함수는 입력양식, 선택양식에서만 사용가능하다.
+				// 해당 양식의 값을 구해올 때 사용된다.
+				// $('#jumin1')의 val()값이 6일 때
+				if ($('#jumin1').val().length == 6)
+					$('#jumin2').focus();
+			});
+		});
+	</script>
+</head>
+
+<body>
+	주민번호 :
+	<input type="text" size="6" maxlength="6" name="jumin1" id="jumin1"> -
+	<input type="text" size="7" maxlength="7" name="jumin2" id="jumin2">
+</body>
+
+</html>

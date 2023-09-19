@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>mouseover 이벤트</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('img').mouseover(function(){
+				// this는 mouseover이벤트가 발생하는 현재 이미지를 의미
+				$(this).attr('src', 'sea.jpg')
+					   .attr('title', '바다');
+				$('body').css('background', 'blue')
+			}).mouseout(function(){	
+				// mouseover이벤트와 같이 처리하는 형식
+				// $('img')로 다시 태그를 불러와서 따로 작성할 수도 있다.
+				$(this).attr('src', 'flower.jpg')
+					   .attr('title', '꽃');
+				$('body').css('background', 'green');
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<img src="flower.jpg" title="꽃">
+</body>
+
+</html>

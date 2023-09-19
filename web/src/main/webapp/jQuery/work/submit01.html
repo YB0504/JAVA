@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>submit 이벤트</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script>
+		$(document).ready(function () {
+			// submit이벤트는 form태그를 구해와서 만들어야 한다.
+			// form태그에 id값이 있는 경우에도 #id값으로 구해오면 가능하다.
+			// $('#sub').submit(function(){
+			$('form').submit(function () {
+				if ($('#name').val() == '') {
+					alert('이름을 입력하세요');
+					$('#name').focus();
+					return false;
+				}
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<form method="post" action="send.jsp">
+		이름 : <input type="text" size="20" name="name" id="name">
+		<!-- <input type="submit" value="전송" id="sub"> -->
+		<input type="submit" value="전송">
+	</form>
+</body>
+
+</html>
