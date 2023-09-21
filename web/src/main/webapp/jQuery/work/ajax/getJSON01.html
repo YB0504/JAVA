@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>getJSON() 함수</title>
+	<style>
+		td {
+			border: 1px solid gray;
+		}
+	</style>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script>
+		$(function () {
+			$.getJSON('item.json',	// 요청할 파일명
+				function (data, textStatus) {	// 콜백함수(매개변수 data, textStatus)
+					$('#treeData').append(		// 테이블의 첫번째 행을 추가
+						"<tr><td>id</td><td>name</td>" +
+						"<td>price</td><td>description</td></tr>");
+					$.each(data, function () {	// 반복적인 작업 수행
+						// each()로 id값이 treeData인 테이블에 
+						// 각각의 키를 this.으로 데이터를 가져와서 추가
+						$("#treeData").append(
+							"<tr><td>" + this.id +
+							"</td><td>" + this.name +
+							"</td><td align='right'>" + this.price +
+							"</td><td>" + this.description + "</td></tr>");
+					}); // each() end
+				});
+		});
+	</script>
+</head>
+
+<body>
+	<table id="treeData"></table>
+</body>
+
+</html>

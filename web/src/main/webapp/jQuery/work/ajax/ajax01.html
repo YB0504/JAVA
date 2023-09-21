@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>ajax()함수</title>
+	<style>
+		div { width: 180px; height: 80px; margin: 3px; float: left;}
+	</style>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('#menu1').click(function(){
+				$.ajax({
+					url : 'menu.html',			// 서버에 요청할 파일명
+					type : 'post',				// 전송방식 설정
+					dataType : 'html',			// 서버에 요청할 데이터 타입
+					// 서버로부터 응답받은 데이터는 콜백함수의 매개변수로 전달된다.
+					success : function(data){
+						// 콜백함수로 전달된 data를 id가 message1인 태그에 설정한다.
+						$('#message1').html(data);
+					}
+				});
+			});
+			$('#menu2').click(function(){
+				$.ajax({
+					url : 'menu.html',			// 서버에 요청할 파일명
+					type : 'post',				// 전송방식 설정
+					dataType : 'html',			// 서버에 요청할 데이터 타입
+					// 서버로부터 응답받은 데이터는 콜백함수의 매개변수로 전달된다.
+					success : function(data){
+						// menu.html 문서의 내용 중 li엘리먼트만 $()로 읽어서
+						// id가 message2인 태그에 설정한다.
+						$('#message2').html($(data).find('li'));
+					}
+				});
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<div>
+		<a href="#" id="menu1">메뉴 보기 1</a><p>
+		<span id="message1"></span>
+	</div>
+	<div>
+		<a href="#" id="menu2">메뉴 보기 2</a><p>
+		<span id="message2"></span>
+	</div>
+</body>
+
+</html>

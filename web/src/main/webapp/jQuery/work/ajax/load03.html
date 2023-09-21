@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>load()함수</title>
+	<style>
+		div { width: 180px; height: 80px; margin: 3px; float: left;}
+	</style>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('#menu1').click(function(){
+				// menu.html문서 전체를 읽어와서
+				// id값이 message1인 태그사이에 추가
+				$('#message1').load('menu.html');
+			});
+			$('#menu2').click(function(){
+				// menu.html 문서 중 li태그만 읽어와서
+				// id값이 message2인 태그사이에 추가
+				$('#message2').load('menu.html li');
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<div>
+		<a href="#" id="menu1">메뉴 보기 1</a><p>
+		<span id="message1"></span>
+	</div>
+	<div>
+		<a href="#" id="menu2">메뉴 보기 2</a><p>
+		<span id="message2"></span>
+	</div>
+</body>
+
+</html>

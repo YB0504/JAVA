@@ -1,0 +1,2 @@
+sample1.txt의 텍스트 입니다.
+load함수 연습 1

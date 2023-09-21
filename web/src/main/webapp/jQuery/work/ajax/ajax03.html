@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>getJSON을 활용한 ajax()함수</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<style>
+		td {
+			border: 1px solid gray;
+		}
+	</style>
+	<script>
+		$(document).ready(function () {
+			$.ajax({
+				url: 'item.json',	// 요청할 파일명
+				type: 'post',		// 전송 방식
+				dataType: 'json',	// 요청할 데이터 타입
+				success: function (data) {	// 콜백함수
+					$('#treeData').append(
+						"<tr><td>id</td><td>name</td>" +
+						"<td>price</td><td>description</td></tr>");
+					$.each(data, function () {	// 콜백함수로 받은 data변수
+						// each()함수를 이용하여 반복적으로 데이터를 가져와서 테이블에 추가
+						$("#treeData").append("<tr><td>"
+							+ this.id + "</td><td>"
+							+ this.name + "</td><td align='right'>"
+							+ this.price + "</td><td>"
+							+ this.description + "</td></tr>");
+					}); // each() end
+				}
+			}) // ajax() end
+		});
+	</script>
+</head>
+
+<body>
+	<table id="treeData"></table>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>요청할 데이터 값을 입력한 ajax함수</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script>
+		$(function () {
+			$('#b1').click(function(){	// button 클릭
+				$.ajax({
+					url : 'welcome.jsp',	// 서버에 요청할 파일명
+					type : 'post',			// 전송 방식
+					// post()방식으로 서버에 전달할 데이터를 구해온다.
+					data : {'username' : $('#username').val()},
+					success : function(msg){
+						// msg매개변수에 welcome.jsp파일을 전달
+						alert(msg);
+						$('#message').html(msg);
+					}
+				})
+			})
+		});
+	</script>
+</head>
+
+<body>
+	<form>
+		이름 입력 :
+		<input type="text" id="username"><br>
+		<input type="button" id="b1" value="전송">
+	</form>
+	<div id="message"></div>
+</body>
+
+</html>
