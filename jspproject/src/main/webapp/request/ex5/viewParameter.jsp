@@ -18,9 +18,10 @@ address 파라미터 = <%= request.getParameter("address") %>
 <%
     String[] values = request.getParameterValues("pet");
     if (values != null) {
-    	for (int i = 0 ; i < values.length ; i++) {
+    	for (int i = 0 ; i < values.length; i++) {
 %>
 			<%= values[i] %>
+			<!-- dog cat pig -->
 <%
   		}
   	}
@@ -28,7 +29,10 @@ address 파라미터 = <%= request.getParameter("address") %>
 <p>
 
 <b>request.getParameterNames() 메소드 사용</b><br>
+<!-- 입력양식이나 선택한 양식의 name값을 구해오는 메소드 -->
 <%
+	// 열거형(나열형)으로 값을 처리한다.
+	// name address pet
     Enumeration num = request.getParameterNames();
     while(num.hasMoreElements()) {
         String name = (String)num.nextElement();
@@ -40,6 +44,7 @@ address 파라미터 = <%= request.getParameter("address") %>
 <p>
 
 <b>request.getParameterMap() 메소드 사용</b><br>
+<!-- key(name)값으로 value값을 구해오는 메소드 -->
 <%
     Map parameterMap = request.getParameterMap();
     String[] nameParam = (String[])parameterMap.get("name");

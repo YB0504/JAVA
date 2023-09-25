@@ -17,5 +17,18 @@
 서버이름 = <%= request.getServerName() %> <br>
 서버포트 = <%= request.getServerPort() %> <br>
 
+<!-- 
+클라이언트IP = 172.30.1.75
+요청정보길이 = -1
+요청정보 인코딩 = null
+요청정보 컨텐트타입 = null
+요청정보 프로토콜 = HTTP/1.1
+요청정보 전송방식 = GET
+요청 URI = /jspproject/request/ex4/requestInfo.jsp
+컨텍스트 경로 = /jspproject
+서버이름 = 172.30.1.48
+서버포트 = 80 
+-->
+
 </body>
 </html>
