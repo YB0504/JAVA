@@ -8,7 +8,11 @@
 </head>
 <body>
 
-처음 작성하는 JSP 페이지~이야~
+처음 작성하는 JSP 페이지~이야~<br><br>
+
+application객체로 공유한 값<br>
+<!-- application객체는 폴더가 달라도 공유한 값을 가져와서 출력할 수 있다. -->
+<%=application.getAttribute("java")%>
 
 </body>
 </html>

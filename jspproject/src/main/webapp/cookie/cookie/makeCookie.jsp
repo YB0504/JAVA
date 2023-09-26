@@ -10,11 +10,12 @@
 
 	// 쿠키객체 생성
 	// id 변수에 value값 totoro를 할당
+	// Cookie cookie = new Cookie(String 변수명, String value);
 	Cookie cookie = new Cookie(cookieName, "totoro");
 	
 	// 쿠키 유지할 시간 설정
 	// 시간설정을 하지 않으면 쿠키를 발행한 브라우저를 종료하는 순간 정보가 지워진다.
-	cookie.setMaxAge(3600);
+	cookie.setMaxAge(5);
 	
 	// 쿠키 value값 수정
 	cookie.setValue("guardian");

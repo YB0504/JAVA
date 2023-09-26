@@ -13,7 +13,7 @@
         for (int i = 0 ; i < cookies.length ; i++) {
 %>
 
-			<!-- 쿠키값을 URLEncoder 클래스를 이용해서 디코딩 한다. -->
+			<!-- 한글로된 쿠키값을 URLEncoder 클래스를 이용해서 디코딩 한다. -->
 			<%= cookies[i].getName() %> = 
 			<%= URLDecoder.decode(cookies[i].getValue()) %><br>
 
