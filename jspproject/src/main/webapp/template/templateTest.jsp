@@ -1,0 +1,39 @@
+<%@ page contentType = "text/html; charset=utf-8" %>
+
+<!-- main파일 실행시 출력되는 파일 -->
+<%
+   String contentPage = request.getParameter("CONTENTPAGE");
+// String contentPage = "content.jsp";
+%>
+
+<html>
+	<head><title>Template 페이지 연습</title></head>
+	<body>
+	<table width="600" border="1" cellpadding="2" cellspacing="0" align=center>
+		<tr height=80>
+		<!-- 각각의 모듈파일을 불러와서 해당하는 위치에 출력 -->
+			<td colspan="2">
+                <!-- 상단 영역 -->
+				<jsp:include page="top.jsp" flush="false" />
+			</td>
+		</tr>
+		<tr height=300>
+			<td width="150" valign="top">
+				<!-- 좌측 영역 -->
+				<jsp:include page="left.jsp" flush="false" />
+			</td>
+			<td width="350" valign="top">
+				<!-- 본문 내용 -->
+				<!-- 입력되어 있는 내용에 따라 수시로 바뀐다. -->
+				<jsp:include page="<%= contentPage %>" flush="false" />
+			</td>
+		</tr>
+		<tr height=80>
+			<td colspan="2">
+				<!-- 하단 영역 -->
+				<jsp:include page="bottom.jsp" flush="false" />
+		    </td>
+		</tr>
+	</table>
+	</body>
+</html>
