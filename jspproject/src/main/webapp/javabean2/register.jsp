@@ -42,6 +42,7 @@
 			</tr>
 			<tr><td>날짜</td>
 				<!-- sd.format(패키지명.getter메소드 명) -->
+				<!-- getProperty를 사용할 수 없다. -->
 				<td colspan="3"><%=sd.format(memberInfo.getRegisterDate()) %></td>
 			</tr>
 		</table>

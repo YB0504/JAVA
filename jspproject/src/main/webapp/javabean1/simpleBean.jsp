@@ -27,8 +27,8 @@
 	가입하는 입력 양식의 name값과 property명이 반드시 일치되어야 한다.
 -->
 <%-- 
-<jsp:setProperty name="sb" property="msg" />
-<jsp:setProperty name="sb" property="name" /> 
+	<jsp:setProperty name="sb" property="msg" />
+	<jsp:setProperty name="sb" property="name" /> 
 --%>
 
 <!-- setProperty의 값을 한번에 처리 -->
