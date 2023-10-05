@@ -5,7 +5,8 @@
 
 <%
 	String id = request.getParameter("id");
-
+	
+	// DAO 객체 생성
 	LogonDBBean manager = LogonDBBean.getInstance();
 	LogonDataBean db = manager.updateForm(id);
 %>
@@ -20,6 +21,7 @@
 
 <body bgcolor="<%=bodyback_c%>">
   <form name="regForm" method="post" action="updatePro.jsp" onsubmit="return inputCheck()">
+  	<!-- 회원을 식별하기 위해 반드시 id값을 전달해야한다. -->
     <input type=hidden name=id value="<%=db.getId() %>">
     <table width="500" border="0" cellspacing="0" cellpadding="2"  align="center">
       <tr height="39" align="center" bgcolor="<%=title_c%>"> 

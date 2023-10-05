@@ -8,6 +8,7 @@
 	<script src="script.js"></script>
 </head>
 
+<!-- 회원가입하면서 입력한 값이 1차적으로 DTO클래스 안에 들어간다. -->
 <body bgcolor="<%=bodyback_c%>">
   <form name="regForm" method="post" action="registerPro.jsp" onsubmit="return inputCheck()">
     <table width="500" border="0" cellspacing="0" cellpadding="2"  align="center">

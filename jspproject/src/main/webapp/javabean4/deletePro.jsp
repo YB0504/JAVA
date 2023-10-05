@@ -20,7 +20,6 @@
 	
 	if(old.getPasswd().equals(regBean.getPasswd())){ // 비번 일치시	
 		manager.delete(regBean);	// delete SQL문 실행
-		
 %>	
 	<script>
 		alert("회원삭제 성공");

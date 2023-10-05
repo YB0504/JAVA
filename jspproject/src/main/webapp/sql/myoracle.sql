@@ -2,11 +2,13 @@
 select * from tab;
 select * from member1;
 
+-- JSP와 Oracle연동
 create  table  member1( id varchar2(20) primary key,
                         passwd varchar2(20) not null,
 						name varchar2(20) not null,	
 						reg_date timestamp not null);
-						
+				
+-- DAO와 Oracle연동
 select * from member2;						
 
 create  table  member2( 

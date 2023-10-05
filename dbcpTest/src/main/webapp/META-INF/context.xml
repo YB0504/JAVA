@@ -1,0 +1,32 @@
+<Context><!-- rootElement --> 
+  <Resource 
+   name="jdbc/OracleDB" 
+   auth="Container"
+   type="javax.sql.DataSource"
+   username="scott" 
+   password="tiger"
+   driverClassName="oracle.jdbc.driver.OracleDriver"
+   factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
+   url="jdbc:oracle:thin:@localhost:1521:xe"
+   maxActive="500"  
+   maxIdle="100"/>  
+</Context>
+
+<!--  
+ maxActive="500"  컨넥션풀이 관리하는 컨넥션의 최대 갯수
+		          (기본값 : 8)
+ maxIdle="100" 	  컨넥션풀이 관리하는 최대 유휴 갯수(기본값 : 8)
+-->
+
+<!-- 
+	name="jdbc/OracleDB" // 커넥션풀을 불러올 때 사용하는 name값 
+	auth="Container"
+	type="javax.sql.DataSource"
+	username="scott" 	// 사용할 계정 정보
+	password="tiger"
+	driverClassName="oracle.jdbc.driver.OracleDriver"	// 드라이버
+	factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
+	url="jdbc:oracle:thin:@localhost:1521:xe"			// DB 변수 URL
+	maxActive="500"  
+	maxIdle="100" 
+-->

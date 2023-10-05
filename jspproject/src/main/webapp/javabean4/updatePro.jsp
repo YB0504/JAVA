@@ -16,8 +16,11 @@
 <%
 	LogonDBBean manager = LogonDBBean.getInstance();
 
+	// hidden객체로 전달받은 id값을 받아온다.
 	LogonDataBean old = manager.updateForm(regBean.getId());
-	
+
+	// id값을 받아와서 비밀번호의 일치를 비교한다.
+	// 기존 비밀번호 			updateForm에서 입력한 비밀번호
 	if(old.getPasswd().equals(regBean.getPasswd())){ // 비번 일치시	
 		manager.update(regBean);	// update SQL문 실행
 		
