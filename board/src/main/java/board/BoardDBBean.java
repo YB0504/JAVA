@@ -10,6 +10,7 @@ import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.naming.spi.DirStateFactory.Result;
 import javax.sql.DataSource;
 
 public class BoardDBBean {
@@ -176,6 +177,191 @@ public class BoardDBBean {
 		}
 
 		return list;
+	}
+
+	// 상세 페이지 : 게시글의 조회수 1증가, 상세정보 구하기
+	// 한 개의 데이터를 검색할 때는 자료형자리에 DTO클래스가 와야한다.
+	public BoardDataBean updateContent(int num) {
+		BoardDataBean board = new BoardDataBean();
+
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+
+			con = getConnect();
+
+			// 기존 조회수를 1증가 시키는 update SQL문
+			String sql = "update board set readcount = readcount + 1";
+			sql += " where num = ?";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			// update SQL문 실행
+			pstmt.executeUpdate();
+
+			// 상세정보를 구하는 select SQL문
+			sql = "select * from board where num = ?";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			// select SQL문 실행
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) { // select SQL문의 조건을 만족하는 데이터 1개를 가져온다.
+
+				board.setNum(rs.getInt("num"));
+				board.setWriter(rs.getString("writer"));
+				board.setEmail(rs.getString("email"));
+				board.setSubject(rs.getString("subject"));
+				board.setPasswd(rs.getString("passwd"));
+				board.setReg_date(rs.getTimestamp("reg_date"));
+				board.setReadcount(rs.getInt("readcount"));
+				board.setContent(rs.getString("content"));
+				board.setIp(rs.getString("ip"));
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (con != null)
+					con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return board;
+	}
+
+	// 게시글 수정 폼 : 수정할 상세 정보 구하기
+	public BoardDataBean getContent(int num) {
+		BoardDataBean board = new BoardDataBean();
+
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+
+			con = getConnect();
+
+			// 상세정보를 구하는 select SQL문
+			String sql = "select * from board where num = ?";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			// select SQL문 실행
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) { // select SQL문의 조건을 만족하는 데이터 1개를 가져온다.
+
+				board.setNum(rs.getInt("num"));
+				board.setWriter(rs.getString("writer"));
+				board.setEmail(rs.getString("email"));
+				board.setSubject(rs.getString("subject"));
+				board.setPasswd(rs.getString("passwd"));
+				board.setReg_date(rs.getTimestamp("reg_date"));
+				board.setReadcount(rs.getInt("readcount"));
+				board.setContent(rs.getString("content"));
+				board.setIp(rs.getString("ip"));
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (con != null)
+					con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return board;
+	}
+
+	// 게시글 수정
+	public int update(BoardDataBean board) {
+		int result = 0;
+
+		Connection con = null;
+		PreparedStatement pstmt = null;
+
+		try {
+
+			con = getConnect();
+
+			String sql = "update board set writer = ?, email = ?, subject = ?, ";
+			sql += " content = ? where num = ?";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, board.getWriter());
+			pstmt.setString(2, board.getEmail());
+			pstmt.setString(3, board.getSubject());
+			pstmt.setString(4, board.getContent());
+			pstmt.setInt(5, board.getNum());
+			result = pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (con != null)
+					con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return result;
+	}
+
+	// 게시글 삭제
+	public int delete(int num) {
+		int result = 0;
+
+		Connection con = null;
+		PreparedStatement pstmt = null;
+
+		try {
+
+			con = getConnect();
+
+			String sql = "delete from board where num = ?";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			result = pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (con != null)
+					con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return result;
 	}
 
 }

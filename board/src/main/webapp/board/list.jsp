@@ -16,7 +16,8 @@
 	// 1. 한 화면(페이지)에 출력할 데이터 갯수
 	int page_size = 10;
 	
-	// 페이지 번호를 설정하는 코드
+	// 페이지 번호를 클릭했을 때 해당 페이지 번호값을 전달하는 변수
+	// 값이 전달되면 list.jsp를 처음부터 다시 실행한다.
 	String pageNum = request.getParameter("page");
 	
 	// 1. list.jsp를 바로 실행할 경우 전달된 page값이 null
@@ -28,7 +29,7 @@
 	}
 	
 	// 2. 현재 페이지 번호
-	// 페이지 번호를 int형으로 형 변환
+	// pageNum변수의 산술연산을 위한 int형으로 형 변환
 	int currentPage = Integer.parseInt(pageNum);
 	
 	// 3. 총 데이터 갯수
@@ -37,7 +38,7 @@
 	
 	BoardDBBean dao = BoardDBBean.getInstance();
 	count = dao.getCount();
-	System.out.println("count : " + count);
+	/* System.out.println("count : " + count); */
 	
 	// 기본 변수 파생 변수(기본 변수의 산술 연산)
 	// 1. startRow : 각 페이지에 추출할 데이터의 시작 번호
@@ -54,7 +55,7 @@
 		// rownum으로 잘라서 목록을 뽑아온다.
 		list = dao.getList(startRow, endRow);
 	}
-	System.out.println("List : " + list); // BoardDataBean의 주소값이 출력된다.
+	/* System.out.println("List : " + list); // BoardDataBean의 주소값이 출력된다. */
 	
 	if(count == 0){
 %>
@@ -90,7 +91,12 @@
 %>
 		<tr>
 			<td><%=number--%></td> <!-- 후행 연산 시키면 연속적인 번호가 출력된다. -->
-			<td><%=board.getSubject() %></td>		
+			<td>
+			<!-- 선택한 게시글의 번호값과 게시글이 위치한 페이지 번호 값을 가지고 가야한다. -->
+			<!-- 두 개이상의 값을 가지고 갈때는 사이에 띄워쓰기가 있으면 오류가 발생한다. -->
+			<a href="content.jsp?num=<%=board.getNum()%>&page=<%=currentPage %>">
+			<%=board.getSubject() %></a>
+			</td>		
 			<td><%=board.getWriter() %></td>		
 			<td><%=sd.format(board.getReg_date())%></td>		
 			<td><%=board.getReadcount() %></td>		
@@ -162,6 +168,13 @@
 	}
 %>
 </center>
+
+<!--
+	select 태그
+	option의 value값에 각 내용에 맞는 컬럼명이 와야한다.
+	검색할 검색어 input type text
+	겟파라미터
+-->
 </body>
 </html>
 
