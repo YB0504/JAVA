@@ -142,11 +142,47 @@
 		if(endPage > pageCount){
 			endPage = pageCount;
 		}
-		
+	
+	if(sel == null && find ==null){
 %>
 	<!-- 1page로 이동 -->	
+		<a href="list.jsp?page=1" style="text-decoration:none"> < </a>
+
+<%
+	/* 이전 블럭으로 이동 */
+	/* 검색한 목록을 추출할 때는 페이지 번호 이외에 sel, find값을 전달받아서 추가 */
+	if(startPage > 10){
+%>		
+		<a href="list.jsp?page=<%=startPage - 10%>" style="text-decoration:none">[이전]</a>
+<%	}	
+
+		// 각 블럭당 10개 페이지 출력
+		for(int i = startPage; i <= endPage; i++){
+			if(i == currentPage){	// 현재 페이지
+%>
+				[<%=i%>]
+<%			}else{ %>
+			<!-- 보고 있지 않은 페이지에 링크 설정 -->
+			<!-- get방식으로 page값을 가져간다. -->
+			<a href="list.jsp?page=<%=i%>" style="text-decoration:none">[<%=i%>]</a>
+				
+<%			}%>
+			
+<% 		} 
+		// 다음 블럭으로 이동
+		if(endPage < pageCount){
+%>
+			<a href="list.jsp?page=<%=startPage + 10%>" style="text-decoration:none">[다음]</a>
+<%		} %>
+		<!-- 마지막 페이지로 이동 -->
+		<!-- 총 페이지 수를 page값에 전달 -->
+		<a href="list.jsp?page=<%=pageCount %>" style="text-decoration:none"> > </a>
+<%		
+	}else if(sel != null && find != null){
+%>
+		<!-- 1page로 이동 -->	
 		<a href="list.jsp?page=1&sel=<%=sel %>&find=<%=find %>" style="text-decoration:none"> < </a>
-		
+
 <%
 	/* 이전 블럭으로 이동 */
 	/* 검색한 목록을 추출할 때는 페이지 번호 이외에 sel, find값을 전달받아서 추가 */
@@ -159,7 +195,7 @@
 		for(int i = startPage; i <= endPage; i++){
 			if(i == currentPage){	// 현재 페이지
 %>
-				[<%=i%>]	
+				[<%=i%>]
 <%			}else{ %>
 			<!-- 보고 있지 않은 페이지에 링크 설정 -->
 			<!-- get방식으로 page값을 가져간다. -->
@@ -175,10 +211,12 @@
 <%		} %>
 		<!-- 마지막 페이지로 이동 -->
 		<!-- 총 페이지 수를 page값에 전달 -->
-		<a href="list.jsp?page=<%=pageCount %>&sel=<%=sel %>&find=<%=find %>" style="text-decoration:none"> > </a>
-<%		
-	}
-%>
+		<a href="list.jsp?page=<%=pageCount %>&sel=<%=sel %>&find=<%=find %>" style="text-decoration:none"> > </a>	
+<%	}
+} %>
+
+
+
 </center>
 <br>
 

@@ -15,6 +15,8 @@ ip varchar2(20) not null);
 -- list.jsp 연습을 위한 데이터 입력
 insert into board values(board_seq.nextval, '홍길동', 'test@naver.com',
 '게시판 제목', '1234', sysdate, 0, '게시판 내용', '222.183.0.1');
+insert into board values(board_seq.nextval, 'tn길동', 'test@naver.com',
+'게시판 제목', '1234', sysdate, 0, '게시판 내용', '222.183.0.1');
 
 select count(*) from board;
 
