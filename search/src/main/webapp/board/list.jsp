@@ -143,9 +143,10 @@
 			endPage = pageCount;
 		}
 	
-	if(sel == null && find ==null){
+	/* if(count > 0 && sel == null && find ==null){	// 전체 목록 페이지 이동 */
+	if(sel == null && find ==null){	// 전체 목록 페이지 이동
 %>
-	<!-- 1page로 이동 -->	
+		<!-- 1page로 이동 -->	
 		<a href="list.jsp?page=1" style="text-decoration:none"> < </a>
 
 <%
@@ -178,7 +179,7 @@
 		<!-- 총 페이지 수를 page값에 전달 -->
 		<a href="list.jsp?page=<%=pageCount %>" style="text-decoration:none"> > </a>
 <%		
-	}else if(sel != null && find != null){
+	}else if(sel != null && find != null){		// 검색한 경우의 페이지 이동
 %>
 		<!-- 1page로 이동 -->	
 		<a href="list.jsp?page=1&sel=<%=sel %>&find=<%=find %>" style="text-decoration:none"> < </a>
@@ -212,11 +213,8 @@
 		<!-- 마지막 페이지로 이동 -->
 		<!-- 총 페이지 수를 page값에 전달 -->
 		<a href="list.jsp?page=<%=pageCount %>&sel=<%=sel %>&find=<%=find %>" style="text-decoration:none"> > </a>	
-<%	}
-} %>
-
-
-
+<%	}	// else if end
+	}	// if end %>
 </center>
 <br>
 

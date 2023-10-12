@@ -17,15 +17,15 @@ reboard - src - main - java   -   reboard  -  BoardDataBean.java (DTO)
                                                          BoardDBBean.java (DAO)
 
                              webapp - reboard  -  writeForm.jsp
-			                   writePro.jsp
-			                   list.jsp
-			                   content.jsp
-                                                         replyForm.jsp
-                                                         replyPro.jsp
-			                   updateForm.jsp
-			                   updatePro.jsp
-			                   deleteForm.jsp
-			                   deletePro.jsp
+			                   					  writePro.jsp
+			                   					  list.jsp
+								                  content.jsp
+					                              replyForm.jsp
+					                              replyPro.jsp
+								                  updateForm.jsp
+								                  updatePro.jsp
+								                  deleteForm.jsp
+								                  deletePro.jsp
 
                                          META-INF - context.xml (Connection Pool 환경설정파일)			                  
 
@@ -34,18 +34,18 @@ reboard - src - main - java   -   reboard  -  BoardDataBean.java (DTO)
                                      	                  web.xml (프로젝트의 환경설정 파일)   
 
 create table board( num number,
-                writer varchar2(20) not null,
-	  email varchar2(30),
-                subject varchar2(50) not null,
-                passwd varchar2(20) not null,
-	  reg_date timestamp not null,
-	  readcount number default 0,
-	  ref number not null,
-	  re_step number not null,
-	  re_level number not null,
-	  content varchar2(2000) not null,
-	  ip varchar2(20) not null,
-	  constraint board_pk primary key(num) );
+                	writer varchar2(20) not null,
+	  				email varchar2(30),
+                	subject varchar2(50) not null,
+                	passwd varchar2(20) not null,
+					reg_date timestamp not null,
+					readcount number default 0,
+					ref number not null,
+					re_step number not null,
+					re_level number not null,
+					content varchar2(2000) not null,
+					ip varchar2(20) not null,
+					constraint board_pk primary key(num) );
 
 
 create sequence board_seq 

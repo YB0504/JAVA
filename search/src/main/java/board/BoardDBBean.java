@@ -82,7 +82,7 @@ public class BoardDBBean {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "";	// sql 변수를 바깥에 선언해야 자유롭게 사용할 수 있다.
+		String sql = "";	// sql 변수를 바깥에 선언하면 자유롭게 사용할 수 있다.
 		
 		try {
 
@@ -155,7 +155,7 @@ public class BoardDBBean {
 				sql += " where rnum >= ? and rnum <= ?";
 			}else {
 				sql = "select * from (select rownum rnum, board.* from ";
-				sql += " (select * from board order by num desc) board) ";	// like 연산자 사용
+				sql += " (select * from board order by num desc) board) ";
 				sql += " where rnum >= ? and rnum <= ?";
 			}
 
