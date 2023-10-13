@@ -242,7 +242,7 @@ public class BoardDBBean {
 	// update, insert SQL문을 작성해야 한다.
 	public int reply(BoardDataBean board) {
 		int result = 0;
-		
+
 		// 부모글에 대한 정보
 		int ref = board.getRef();
 		int re_step = board.getRe_step();
@@ -251,37 +251,185 @@ public class BoardDBBean {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String sql = "";
-		
+
 		try {
 
 			con = getConnection();
-			
+
+			// 1. 원문이 부모인 경우
+			// : 원문의 re_step=0 이기 떄문에, 모든 댓글들의 re_step값이 1씩 증가한다.
+
+			// 2. 댓글이 부모인 경우
+			// : 부모의 re_step 보다 큰 댓글만 re_step값이 1씩 증가한다.
+
 			// update SQL 문
 			sql = "update reboard set re_step = re_step + 1 ";
 			sql += " where ref = ? and re_step > ?";
-			
+
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, ref);		// 부모의 ref 값
-			pstmt.setInt(2, re_step);	// 부모의 re_step 값
+			pstmt.setInt(1, ref); // 부모의 ref 값
+			pstmt.setInt(2, re_step); // 부모의 re_step 값
 			pstmt.executeUpdate();
-			
+
 			// insert SQL문
 			sql = "insert into reboard values(reboard_seq.nextval,";
 			sql += " ?, ?, ?, ?, sysdate, ?, ?, ?, ?, ?, ?)";
-			
+
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, board.getWriter());
 			pstmt.setString(2, board.getEmail());
 			pstmt.setString(3, board.getSubject());
 			pstmt.setString(4, board.getPasswd());
 			pstmt.setInt(5, board.getReadcount());
-			pstmt.setInt(6, ref);				// 부모의 ref 
-			pstmt.setInt(7, re_step + 1);		// 부모의 re_step
-			pstmt.setInt(8, re_level + 1);		// 부모의 re_level
+			pstmt.setInt(6, ref); // 부모의 ref
+			pstmt.setInt(7, re_step + 1); // 부모의 re_step
+			pstmt.setInt(8, re_level + 1); // 부모의 re_level
 			pstmt.setString(9, board.getContent());
 			pstmt.setString(10, board.getIp());
 			result = pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (con != null)
+					con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return result;
+	}
+
+	// 게시글 수정 폼
+	public BoardDataBean getContent(int num) {
+		BoardDataBean board = new BoardDataBean();
+
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "";
+
+		try {
+
+			con = getConnection();
+
+			sql = "select * from reboard where num = ?";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+
+				board.setNum(rs.getInt("num"));
+				board.setWriter(rs.getString("writer"));
+				board.setEmail(rs.getString("email"));
+				board.setSubject(rs.getString("subject"));
+				board.setPasswd(rs.getString("passwd"));
+				board.setReg_date(rs.getTimestamp("reg_date"));
+				board.setReadcount(rs.getInt("readcount"));
+				board.setRef(rs.getInt("ref"));
+				board.setRe_level(rs.getInt("re_level"));
+				board.setRe_step(rs.getInt("re_step"));
+				board.setContent(rs.getString("content"));
+				board.setIp(rs.getString("ip"));
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (con != null)
+					con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return board;
+	}
+
+	// 게시글 수정
+	public int update(BoardDataBean board) {
+		int result = 0;
+
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "";
+
+		try {
+
+			con = getConnection();
+
+			sql = "update reboard set writer = ?, email = ?, subject = ?,";
+			sql += " content = ? where num = ?";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, board.getWriter());
+			pstmt.setString(2, board.getEmail());
+			pstmt.setString(3, board.getSubject());
+			pstmt.setString(4, board.getContent());
+			pstmt.setInt(5, board.getNum());
+			result = pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (con != null)
+					con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return result;
+	}
+
+	// 게시글 삭제
+	// 원문은 삭제 되지않고 공지문장이 남게 설정
+	public int delete(BoardDataBean board) {
+		int result = 0;
+
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "";
+
+		try {
+
+			con = getConnection();
+
+			if (board.getRe_level() == 0) { // 원문
+
+				sql = "update reboard set subject = ?, content = ? where num = ?";
+
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, "관리자에 의해서 삭제됨");
+				pstmt.setString(2, " ");
+				pstmt.setInt(3, board.getNum());
+
+			} else { // 댓글
+
+				sql = "delete from reboard where num = ?";
+
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, board.getNum());
+
+			}
 			
+				result = pstmt.executeUpdate();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -299,9 +447,3 @@ public class BoardDBBean {
 	}
 
 }
-
-
-
-
-
-

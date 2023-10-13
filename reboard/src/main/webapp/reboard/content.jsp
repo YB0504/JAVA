@@ -22,7 +22,6 @@
 	String content = board.getContent().replace("\n", "<br>");
 	
 	SimpleDateFormat sd = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss EEE요일");
-	
 %>
 
 <!DOCTYPE html>
@@ -63,9 +62,11 @@
 				<input type="button" value="댓글"
 onclick="location.href='replyForm.jsp?num=<%=num%>&page=<%=nowpage%>&ref=<%=ref%>&re_level=<%=re_level%>&re_step=<%=re_step%>'">
 				
-				<input type="button" value="수정">
+				<input type="button" value="수정"
+				onclick="location.href='updateForm.jsp?num=<%=num%>&page=<%=nowpage%>'">
 				
-				<input type="button" value="삭제">
+				<input type="button" value="삭제"
+				onclick="location.href='deleteForm.jsp?num=<%=num%>&page=<%=nowpage%>'">
 		
 				<input type="button" value="목록" 
 				onclick="location.href='list.jsp?page=<%=nowpage%>'">

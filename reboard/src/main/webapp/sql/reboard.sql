@@ -12,8 +12,8 @@ passwd varchar2(20) not null,
 reg_date timestamp not null,
 readcount number default 0,
 ref number not null,		-- 원문 글과 댓글을 묶어주는 컬럼(num컬럼과 같은 값을 가진다.)
-re_step number not null,	-- 댓글, 답글의 출력순서를 저장(오름차순 정렬한다.), update,insert SQL을 실행해야 한다.
-re_level number not null,	-- 댓글, 답글의 깊이를 저장하는 컬럼
+re_step number not null,	-- 댓글, 답글의 출력순서를 저장(오름차순 정렬한다.), update,in sert SQL을 실행해야 한다.
+re_level number not null,	-- 댓글, 답글의 깊이를 저장하는 컬럼(내림차순)
 content varchar2(2000) not null,
 ip varchar2(20) not null );
 
