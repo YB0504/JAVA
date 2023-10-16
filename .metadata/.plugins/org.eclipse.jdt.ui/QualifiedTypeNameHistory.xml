@@ -45,19 +45,19 @@
     <fullyQualifiedTypeName name="board.BoardDBBean"/>
     <fullyQualifiedTypeName name="board.BoardDataBean"/>
     <fullyQualifiedTypeName name="java.util.concurrent.CountDownLatch"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="reboard.BoardDBBean"/>
-    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="reboard.BoardDataBean"/>
-    <fullyQualifiedTypeName name="upload.BoardDBBean"/>
-    <fullyQualifiedTypeName name="upload.BoardDataBean"/>
     <fullyQualifiedTypeName name="java.sql.Timestamp"/>
     <fullyQualifiedTypeName name="Model1EX.DAOEX"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="javax.naming.Context"/>
     <fullyQualifiedTypeName name="javax.sql.DataSource"/>
     <fullyQualifiedTypeName name="Model1EX.DTOEX"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="upload.BoardDBBean"/>
+    <fullyQualifiedTypeName name="upload.BoardDataBean"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 </qualifiedTypeNameHistroy>
