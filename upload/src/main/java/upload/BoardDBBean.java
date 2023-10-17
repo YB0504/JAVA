@@ -1,5 +1,6 @@
 package upload;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -257,7 +258,7 @@ public class BoardDBBean {
 				board.setContent(rs.getString("content"));
 				board.setIp(rs.getString("ip"));
 				board.setUpload(rs.getString("upload"));
-				
+
 			}
 
 		} catch (Exception e) {
@@ -277,22 +278,22 @@ public class BoardDBBean {
 
 		return board;
 	}
-	
+
 	// 게시글 수정(첨부파일)
 	public int update(BoardDataBean board) {
 		int result = 0;
-		
+
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String sql = "";
-		
+
 		try {
-			
+
 			con = getConnection();
-			
+
 			sql = "update upload set writer = ?, email = ?, subject = ?,";
 			sql += " content = ?, ip = ?, upload = ? where num = ?";
-			
+
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, board.getWriter());
 			pstmt.setString(2, board.getEmail());
@@ -302,10 +303,10 @@ public class BoardDBBean {
 			pstmt.setString(6, board.getUpload());
 			pstmt.setInt(7, board.getNum());
 			result = pstmt.executeUpdate();
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
 				if (pstmt != null)
 					pstmt.close();
@@ -315,20 +316,59 @@ public class BoardDBBean {
 				e.printStackTrace();
 			}
 		}
-		
+
+		return result;
+	}
+
+	// 게시글 삭제 + 첨부파일 삭제
+	public int delete(BoardDataBean board, String path) {
+		int result = 0;
+
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "";
+
+		try {
+
+			con = getConnection();
+
+			// 게시글 삭제
+			sql = "delete from upload where num = ?";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, board.getNum());
+			result = pstmt.executeUpdate();
+
+			// 첨부파일 삭제(자바 file클래스 활용)
+			if (board.getUpload() != null) { // 첨부파일이 있는 경우
+
+				File file = new File(path); // 매개변수로 전달한 path값을 할당
+
+				// upload 디렉토리의 모든 파일 구해오기
+				File[] f = file.listFiles();
+
+				for (int i = 0; i < f.length; i++) {
+					// file 배열에 저장된 파일명과 DB에 저장된 파일명이 일치할 때 파일 삭제
+					if (f[i].getName().equals(board.getUpload())) {
+						f[i].delete();
+					}
+				}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (con != null)
+					con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
 		return result;
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
