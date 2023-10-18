@@ -122,7 +122,7 @@
 <%	}	// else end%>
 
 <!-- 페이지 링크 -->
-<center>
+<div align="center">
 <%
 
 	if(count > 0){
@@ -215,7 +215,7 @@
 		<a href="list.jsp?page=<%=pageCount %>&sel=<%=sel %>&find=<%=find %>" style="text-decoration:none"> > </a>	
 <%	}	// else if end
 	}	// if end %>
-</center>
+</div>
 <br>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
