@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
-    <fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
-    <fullyQualifiedTypeName name="java.lang.ClassNotFoundException"/>
-    <fullyQualifiedTypeName name="p2023_8_3.Homework"/>
-    <fullyQualifiedTypeName name="java.lang.Thread"/>
-    <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
-    <fullyQualifiedTypeName name="java.io.FileWriter"/>
-    <fullyQualifiedTypeName name="java.lang.Math"/>
     <fullyQualifiedTypeName name="p2023_8_5.Student"/>
     <fullyQualifiedTypeName name="p2023_8_6.MemberService"/>
     <fullyQualifiedTypeName name="p2023_8_6.Printer"/>
@@ -28,7 +20,6 @@
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="register.LogonDBBean"/>
     <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
-    <fullyQualifiedTypeName name="java.lang.Class"/>
     <fullyQualifiedTypeName name="java.sql.DriverManager"/>
     <fullyQualifiedTypeName name="register.LogonDataBean"/>
     <fullyQualifiedTypeName name="java.io.FileInputStream"/>
@@ -40,11 +31,7 @@
     <fullyQualifiedTypeName name="java.util.concurrent.CountDownLatch"/>
     <fullyQualifiedTypeName name="reboard.BoardDBBean"/>
     <fullyQualifiedTypeName name="reboard.BoardDataBean"/>
-    <fullyQualifiedTypeName name="java.sql.Timestamp"/>
     <fullyQualifiedTypeName name="Model1EX.DAOEX"/>
-    <fullyQualifiedTypeName name="java.lang.Exception"/>
-    <fullyQualifiedTypeName name="javax.naming.Context"/>
-    <fullyQualifiedTypeName name="javax.sql.DataSource"/>
     <fullyQualifiedTypeName name="upload.BoardDBBean"/>
     <fullyQualifiedTypeName name="upload.BoardDataBean"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
@@ -56,6 +43,19 @@
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="dao.MemberDAO"/>
+    <fullyQualifiedTypeName name="java.lang.Class"/>
+    <fullyQualifiedTypeName name="javax.naming.Context"/>
+    <fullyQualifiedTypeName name="javax.sql.DataSource"/>
+    <fullyQualifiedTypeName name="java.sql.Timestamp"/>
+    <fullyQualifiedTypeName name="model.MemberDTO"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+    <fullyQualifiedTypeName name="service.Action"/>
+    <fullyQualifiedTypeName name="service.ActionForward"/>
+    <fullyQualifiedTypeName name="service.MemberInsert"/>
+    <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
     <fullyQualifiedTypeName name="Model1EX.DTOEX"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>

@@ -209,7 +209,7 @@ public class DAOEX {
 				board.setRef(rs.getInt("ref"));
 				board.setRe_level(rs.getInt("re_level"));
 				board.setRe_step(rs.getInt("re_step"));
-				
+
 			}
 
 		} catch (Exception e) {
@@ -228,6 +228,65 @@ public class DAOEX {
 		}
 
 		return board;
+	}
+
+	// 답글 작성
+	// update, insert
+	public int reply(DTOEX board) {
+		int result = 0;
+
+		// 부모글 정보 가져오기
+		int ref = board.getRef();
+		int re_level = board.getRe_level();
+		int re_step = board.getRe_step();
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "";
+
+		try {
+
+			con = getConnection();
+			
+			sql = "update boardex set re_step = re_step + 1 ";
+			sql += " where ref = ? and re_step > ?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, ref);
+			pstmt.setInt(2, re_step);
+			pstmt.executeUpdate();
+			
+			// 원문 글 작성과 다르게 ref값이 시퀀스로 늘어나지 않는다.
+			sql = "insert into boardex values(boardex_seq.nextval, ";
+			sql += "?, ?, ?, ?, ?, ?, sysdate, ?, ?, ?, ?)";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, board.getWriter());
+			pstmt.setString(2, board.getSubject());
+			pstmt.setString(3, board.getEmail());
+			pstmt.setString(4, board.getContent());
+			pstmt.setString(5, board.getPasswd());
+			pstmt.setString(6, board.getIp());
+			pstmt.setInt(7, board.getReadcount());
+			pstmt.setInt(8, ref);	// 부모 글의 ref
+			pstmt.setInt(9, re_level + 1); // 부모 글의 re_level
+			pstmt.setInt(10, re_step + 1); // 부모 글의 re_step
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (con != null)
+					con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return result;
 	}
 
 }
