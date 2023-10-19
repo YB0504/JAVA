@@ -21,6 +21,8 @@ select * from tab;
 select * from BOARDEX;
 select * from seq;
 
+delete from BOARDEX where num = 1;
+
 drop table boardex purge;
 drop sequence boardex_seq;
 

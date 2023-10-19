@@ -239,7 +239,7 @@ public class DAOEX {
 		int ref = board.getRef();
 		int re_level = board.getRe_level();
 		int re_step = board.getRe_step();
-		
+
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String sql = "";
@@ -247,19 +247,19 @@ public class DAOEX {
 		try {
 
 			con = getConnection();
-			
+
 			sql = "update boardex set re_step = re_step + 1 ";
 			sql += " where ref = ? and re_step > ?";
-			
+
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, ref);
 			pstmt.setInt(2, re_step);
 			pstmt.executeUpdate();
-			
+
 			// 원문 글 작성과 다르게 ref값이 시퀀스로 늘어나지 않는다.
 			sql = "insert into boardex values(boardex_seq.nextval, ";
 			sql += "?, ?, ?, ?, ?, ?, sysdate, ?, ?, ?, ?)";
-			
+
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, board.getWriter());
 			pstmt.setString(2, board.getSubject());
@@ -268,11 +268,151 @@ public class DAOEX {
 			pstmt.setString(5, board.getPasswd());
 			pstmt.setString(6, board.getIp());
 			pstmt.setInt(7, board.getReadcount());
-			pstmt.setInt(8, ref);	// 부모 글의 ref
+			pstmt.setInt(8, ref); // 부모 글의 ref
 			pstmt.setInt(9, re_level + 1); // 부모 글의 re_level
 			pstmt.setInt(10, re_step + 1); // 부모 글의 re_step
 			result = pstmt.executeUpdate();
-			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (con != null)
+					con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return result;
+	}
+
+	// 게시글 수정 폼 내용 불러오기
+	public DTOEX getContent(int num) {
+		DTOEX board = new DTOEX();
+
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "";
+
+		try {
+
+			con = getConnection();
+
+			sql = "select * from boardex where num = ?";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+
+				board.setNum(rs.getInt("num"));
+				board.setWriter(rs.getString("writer"));
+				board.setSubject(rs.getString("subject"));
+				board.setEmail(rs.getString("email"));
+				board.setContent(rs.getString("content"));
+				board.setPasswd(rs.getString("passwd"));
+				board.setIp(rs.getString("ip"));
+				board.setReg_date(rs.getTimestamp("reg_date"));
+				board.setReadcount(rs.getInt("readcount"));
+				board.setRef(rs.getInt("ref"));
+				board.setRe_level(rs.getInt("re_level"));
+				board.setRe_step(rs.getInt("re_step"));
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (con != null)
+					con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return board;
+	}
+
+	// 글 수정
+	public int update(DTOEX board) {
+		int result = 0;
+
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "";
+
+		try {
+
+			con = getConnection();
+
+			sql = "update boardex set writer = ?, subject = ?, ";
+			sql += " email = ?, content = ? where num = ?";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, board.getWriter());
+			pstmt.setString(2, board.getSubject());
+			pstmt.setString(3, board.getEmail());
+			pstmt.setString(4, board.getContent());
+			pstmt.setInt(5, board.getNum());
+			result = pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (con != null)
+					con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return result;
+	}
+
+	// 글삭제
+	// 원문 글 삭제시 관리자에 의해 삭제되었다는 문장을 남기고
+	// 답글 삭제시 글 삭제
+	// update, delete
+	public int delete(DTOEX board) {
+		int result = 0;
+
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "";
+
+		try {
+
+			con = getConnection();
+
+			if (board.getRe_level() == 0) {	// 답글의 깊이가 0 = 원문 글
+				sql = "update boardex set subject = ?, content = ? where num = ?";
+
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, "삭제됨");
+				pstmt.setString(2, " ");
+				pstmt.setInt(3, board.getNum());
+
+			} else {	// 답글
+				sql = "delete from boardex where num = ?";
+
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, board.getNum());
+			}
+			result = pstmt.executeUpdate();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -290,11 +430,3 @@ public class DAOEX {
 	}
 
 }
-
-
-
-
-
-
-
-
