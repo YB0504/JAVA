@@ -13,6 +13,7 @@
 				user="scott" 
 				password="tiger"/>
 
+<!-- executeUpdate SQL 실행문과 같은 역할 -->
 <sql:update dataSource="${conn}">
 	INSERT INTO test (num, name) VALUES (1, '홍길동')
 </sql:update>
@@ -26,6 +27,8 @@
 	INSERT INTO test (num, name) VALUES (4, '홍길순')
 </sql:update>
 
+<!-- executeQuery SQL 실행문과 같은 역할 -->
+<!-- select로 검색한 결과를 받기 위해 변수를 Resultset rs로 설정 -->
 <sql:query var="rs" dataSource="${conn}">
 	SELECT * FROM test WHERE name=?
 	<sql:param>홍길동</sql:param>

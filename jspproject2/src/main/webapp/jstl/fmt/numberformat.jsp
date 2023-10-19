@@ -19,7 +19,15 @@
 퍼센트: <fmt:formatNumber value="${price}" type="percent" groupingUsed="true" /> <br>
 퍼센트: <fmt:formatNumber value="${price}" type="percent" groupingUsed="false" /> <br>
 
-패턴: <fmt:formatNumber value="${price}" pattern="00000000.00"/>
+패턴: <fmt:formatNumber value="${price}" pattern="###00000.00"/>
+
+<!-- 
+숫자: 10,000
+통화: $10,000
+퍼센트: 1,000,000%
+퍼센트: 1000000%
+패턴: 10000.00 
+-->
 
 </body>
 </html>

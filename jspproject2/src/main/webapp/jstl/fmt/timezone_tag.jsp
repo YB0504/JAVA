@@ -13,6 +13,7 @@
                 dateStyle="full" timeStyle="full" />
 <br>
 
+<!-- value값에 국가명 기입 -->
 <fmt:timeZone value="Hongkong">
 <fmt:formatDate value="${now}" type="both" 
                 dateStyle="full" timeStyle="full" />

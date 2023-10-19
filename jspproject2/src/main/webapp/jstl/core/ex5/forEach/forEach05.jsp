@@ -25,13 +25,13 @@
 	list.add("텐스플로우");
 	list.add("케라스");
 	
-	request.setAttribute("slist", list);		// 공유 설정
+	request.setAttribute("slist", list);	// 공유 설정
 %>
 
 <!-- 제시된 list를 바로 forEach에 전달하면 값을 출력할 수 없다 -->
 
 <!-- 방법1 -->
-<!-- list를 새로운 변수로 설정한다. -->
+<!-- list값를 set태그로 새로운 변수에 저장한다. -->
 <c:set var="s1" value="<%=list%>"/>
 <c:forEach var="s2" items="${s1}">
     ${s2} <br>  
@@ -40,6 +40,7 @@
 
 <!-- 방법2 -->
 <!-- request객체로 공유된 name값을 items속성에 할당한다. -->
+<%-- <c:forEach var="s" items="${requsetScope.slist}"> --%>
 <c:forEach var="s" items="${slist}">
     ${s} <br>
 </c:forEach>

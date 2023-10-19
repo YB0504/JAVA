@@ -7,6 +7,7 @@
 </head>
 <body>
 
+<!-- &nbsp; : 수평간격을 벌리는 특수문자 -->
 <c:forEach var="test" begin="1" end="10" step="2">
 	<b>${test}</b>&nbsp;
 </c:forEach>

@@ -15,6 +15,7 @@
 
 <%
     HashMap hm = new HashMap();
+	// key, value
     hm.put("num", "1");
     hm.put("today", new Date());
 %>
@@ -23,6 +24,7 @@
 
 <h3>Map 객체</h3>
 <c:forEach var="i" items="${map}">
+	<!-- key값과 value 값을 각각 가져와서 출력할 수 있다. -->
     ${i.key} = ${i.value}<br>
 </c:forEach>
 
