@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import service.Action;
 import service.ActionForward;
+import service.Idcheck;
+import service.Login;
 import service.MemberInsert;
 
 // 클라이언트가 Controller클래스로 찾아올 WebServlet pattern 설정
@@ -44,11 +46,14 @@ public class MemberController extends HttpServlet {
 		ActionForward forward = null;
 
 		// 회원 가입
+		// throws로 예외를 던지기 때문에 예외처리 형식이 필요하다.
 		if (command.equals("/MemberInsert.do")) {
 			try {
 
 				// MemberInsert 객체 생성 후 execute메소드 실행
-				action = new MemberInsert(); // 일종의 업캐스팅 생성된 객체의 값을 action이 받는다.
+				// 일종의 업캐스팅 생성된 객체의 값을 action이 받는다.
+				action = new MemberInsert();
+				// execute메소드 실행
 				// ActionForward 클래스로 값을 돌려주기 때문에
 				// forward 로 값을 받는다.
 				forward = action.execute(request, response);
@@ -56,6 +61,46 @@ public class MemberController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			// ID 중복검사(ajax)
+		} else if (command.equals("/Idcheck.do")) {
+			try {
+				action = new Idcheck();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			// 회원 가입 폼(로그인 창에서 클릭 시)
+		} else if (command.equals("/MemberForm.do")) {
+			// 전달하는 값이 없을 때는 Service클래스 없이 바로 포워딩한다.
+			forward = new ActionForward();
+			// 공유되는 값이 없기 때문에 포워딩 방식은 상관 없다.
+			forward.setRedirect(false);
+			forward.setPath("./member/memberform.jsp");
+
+			// index에서 실행한 로그인 폼
+		} else if (command.equals("/LoginForm.do")) {
+
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/loginform.jsp");
+
+			// 로그인(회원인증)
+		} else if (command.equals("/Login.do")) {
+			try {
+				action = new Login();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			// 로그아웃
+		}else if(command.equals("/Logout.do")){
+			
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/logout.jsp");
+			
 		}
 
 		// 포워딩 처리

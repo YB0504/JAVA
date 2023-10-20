@@ -12,9 +12,9 @@
 <script>
 	function openDaumPostcode() {
 		new daum.Postcode({
-			oncomplete : function(data) {	
+			oncomplete : function(data) {
 				document.getElementById('post').value = data.zonecode;
-				document.getElementById('address').value = data.address;				
+				document.getElementById('address').value = data.address;
 			}
 		}).open();
 	}
@@ -26,7 +26,7 @@
 
 </head>
 <body>
-
+							<!-- 확장자를 잘 찾아가지 못할 때 프로젝트명을 같이 작성한다. -->
 <form method="post" action="<%=request.getContextPath() %>/MemberInsert.do"> 
 <table border=1 width=500 align=center>
 	<caption>회원 가입</caption>
@@ -110,6 +110,7 @@
 	<tr><td colspan=2 align=center>
 			<input type=submit value="회원가입">
 			<input type=reset value="취소">
+			<input type="button" value="채우기" id="fill">
 		</td>
 	</tr>		
 </table>

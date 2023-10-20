@@ -27,7 +27,8 @@
 		</tr>
 		<tr>
 			<td colspan=2 align=center>
-				<input type="button" value="회원가입" 
+				<!-- DB연동 할 필요가 없기 때문에 바로 Controller클래스에서 포워딩 시켜준다. -->
+				<input type="button" value="회원가입"
 				       onClick="location.href='<%=request.getContextPath()%>/MemberForm.do' ">
 				<input type="submit" value="로그인">
 				<input type="reset" value="취소">
@@ -35,7 +36,7 @@
 		</tr>
 		
 	</table>
-	</form>	
+	</form>
 	
 	</body>
 	</html>

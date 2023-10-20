@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	Model2 방식 회원관리 연습
+	<!-- Controller 클래스에서 포워딩한다. -->
+	<script>
+		location.href = "./LoginForm.do";
+	</script>
+
 </body>
 </html>
