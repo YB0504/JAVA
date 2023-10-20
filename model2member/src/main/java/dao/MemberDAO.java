@@ -76,35 +76,35 @@ public class MemberDAO {
 
 		return result;
 	}
-	
+
 	// ID 중복 검사(ajax)
 	public int idcheck(String id) {
 		int result = 0;
-		
+
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "";
-		
+
 		try {
-			
+
 			con = getConnection();
-			
+
 			sql = "select * from model2member where id = ?";
-			
+
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {	// 조건식을 만족하면 중복 ID
+
+			if (rs.next()) { // 조건식을 만족하면 중복 ID
 				result = 1;
-			}else {			// 사용 가능한 ID
+			} else { // 사용 가능한 ID
 				result = -1;
 			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
 				if (rs != null)
 					rs.close();
@@ -116,40 +116,40 @@ public class MemberDAO {
 				e.printStackTrace();
 			}
 		}
-		
+
 		return result;
 	}
-	
+
 	// 로그인(회원인증)
 	public int memberAuth(String id, String passwd) {
 		int result = 0;
-		
+
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "";
-		
+
 		try {
-			
+
 			con = getConnection();
-			
+
 			sql = "select * from model2member ";
 			sql += " where id = ? and passwd = ?";
-			
+
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.setString(2, passwd);
 			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {	// 회원인증 성공
+
+			if (rs.next()) { // 회원인증 성공
 				result = 1;
-			}else {			// 실패
+			} else { // 실패
 				result = -1;
 			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
 				if (rs != null)
 					rs.close();
@@ -161,26 +161,7 @@ public class MemberDAO {
 				e.printStackTrace();
 			}
 		}
-		
+
 		return result;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
