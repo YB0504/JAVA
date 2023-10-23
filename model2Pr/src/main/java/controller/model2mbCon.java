@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import service.Action;
 import service.ActionForward;
+import service.Idcheck;
+import service.Login;
+import service.MemberInsert;
 
 @WebServlet("*.do")
 public class model2mbCon extends HttpServlet {
@@ -31,11 +34,54 @@ public class model2mbCon extends HttpServlet {
 		Action action = null;
 		ActionForward forward = null;
 
+		// 회원 가입
+		if (command.equals("/MemberInsert.do")) {
+			try {
+				action = new MemberInsert();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			// ID 중복검사
+		} else if (command.equals("/Idcheck.do")) {
+			try {
+				action = new Idcheck();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			// 로그인 성공
+		} else if (command.equals("/Login.do")) {
+			try {
+				action = new Login();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			// 회원 가입 폼(로그인 창에서 클릭 시)
+		} else if (command.equals("/MemberForm.do")) {
+			// 전달하는 값이 없을 때는 Service클래스 없이 바로 포워딩한다.
+			forward = new ActionForward();
+			// 공유되는 값이 없기 때문에 포워딩 방식은 상관 없다.
+			forward.setRedirect(false);
+			forward.setPath("./member/memberform.jsp");
+
+			// index에서 실행한 로그인 폼
+		} else if (command.equals("/LoginForm.do")) {
+
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/loginform.jsp");
+		}
+		
+		
 		// 포워딩 처리
 		if (forward != null) {
-			if (forward.isRedirect()) {		// redirect 포워딩
+			if (forward.isRedirect()) { // redirect 포워딩
 				response.sendRedirect(forward.getPath());
-			} else {						// dispatcher 포워딩
+			} else { // dispatcher 포워딩
 				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
 				dispatcher.forward(request, response);
 			}

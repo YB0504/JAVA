@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	연습용
+	<!-- Controller 클래스에서 포워딩한다. -->
+	<script>
+		location.href = "./LoginForm.do";
+	</script>
 </body>
 </html>

@@ -16,10 +16,10 @@ ActionForward클래스 : service - ActionForward.java
 Service 클래스 : service - MemberInsert.java (회원가입)
 		       IdCheck.java(ID중복검사)
 		       Login.java(로그인)
-		       Logout.java(로그아웃)
+		       Logout.java(로그아웃) X
 		       UpdateMember.java(정보수정폼)
 		       Update.java(정보수정)	
-		       DeleteMember.java(회원탈퇴폼)
+		       DeleteMember.java(회원탈퇴폼) X
 		       Delete.java(회원탈퇴)
 
 
