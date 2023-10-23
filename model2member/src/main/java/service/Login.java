@@ -50,7 +50,7 @@ public class Login implements Action {
 			
 			// 이 코드가 없으면 아래쪽의 내용이 실행된다.
 			// null 값으로 리턴해야 if함수를 빠져 나간다.
-			return null; 
+			return null;
 		}
 		
 		// 포워딩 시켜줄 액션 포워드 객체 생성

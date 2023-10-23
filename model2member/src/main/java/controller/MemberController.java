@@ -11,9 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import service.Action;
 import service.ActionForward;
+import service.Delete;
 import service.Idcheck;
 import service.Login;
 import service.MemberInsert;
+import service.Update;
+import service.UpdateMember;
 
 // 클라이언트가 Controller클래스로 찾아올 WebServlet pattern 설정
 @WebServlet("*.do") // do확장자로 요청하는 모든 요청을 받는다.
@@ -93,14 +96,46 @@ public class MemberController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
+
 			// 로그아웃
-		}else if(command.equals("/Logout.do")){
-			
+		} else if (command.equals("/Logout.do")) {
+
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./member/logout.jsp");
-			
+
+			// 회원정보 수정 폼
+		} else if (command.equals("/UpdateMember.do")) {
+			try {
+				action = new UpdateMember();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			// 회원 정보 수정
+		} else if (command.equals("/Update.do")) {
+			try {
+				action = new Update();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			// 회원 탈퇴 폼
+		} else if (command.equals("/DeleteMember.do")) {
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/deleteform.jsp");
+
+			// 회원 탈퇴
+		} else if (command.equals("/Delete.do")) {
+			try {
+				action = new Delete();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		// 포워딩 처리
