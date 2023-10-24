@@ -32,7 +32,6 @@ public class UpdateMember implements Action {
 
 		// 공유 설정
 		// 공유되는 값의 자료형은 세가지가 있다.
-		// 기본 자료형
 		// 객체 공유 객체명.필드명
 		// 배열형, List 공유 foreach태그에 item속성에 작성
 		request.setAttribute("member", member);

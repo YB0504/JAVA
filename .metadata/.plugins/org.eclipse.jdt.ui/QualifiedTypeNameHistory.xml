@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.util.Arrays"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="register.LogonDBBean"/>
     <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
@@ -24,18 +22,11 @@
     <fullyQualifiedTypeName name="java.lang.Class"/>
     <fullyQualifiedTypeName name="Model1EX.DTOEX"/>
     <fullyQualifiedTypeName name="java.lang.StringIndexOutOfBoundsException"/>
-    <fullyQualifiedTypeName name="service.UpdateMember"/>
-    <fullyQualifiedTypeName name="service.Update"/>
-    <fullyQualifiedTypeName name="service.Delete"/>
     <fullyQualifiedTypeName name="dao.MemberDAO"/>
     <fullyQualifiedTypeName name="model.MemberDTO"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
     <fullyQualifiedTypeName name="service.MemberInsert"/>
-    <fullyQualifiedTypeName name="model.model2mbDTO"/>
-    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
-    <fullyQualifiedTypeName name="dao.model2mbDAO"/>
     <fullyQualifiedTypeName name="javax.servlet.jsp.jstl.sql.Result"/>
     <fullyQualifiedTypeName name="service.Idcheck"/>
     <fullyQualifiedTypeName name="service.Login"/>
@@ -49,15 +40,24 @@
     <fullyQualifiedTypeName name="com.oreilly.servlet.MultipartRequest"/>
     <fullyQualifiedTypeName name="com.oreilly.servlet.multipart.FileRenamePolicy"/>
     <fullyQualifiedTypeName name="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"/>
-    <fullyQualifiedTypeName name="service.Action"/>
-    <fullyQualifiedTypeName name="service.ActionForward"/>
-    <fullyQualifiedTypeName name="service.BoardListAction"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
-    <fullyQualifiedTypeName name="dao.BoardDAO"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="service.BoardListAction"/>
+    <fullyQualifiedTypeName name="service.BoardDetailAction"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="dao.BoardDAO"/>
     <fullyQualifiedTypeName name="model.BoardBean"/>
+    <fullyQualifiedTypeName name="service.UpdateMember"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="service.Update"/>
+    <fullyQualifiedTypeName name="java.awt.image.ColorConvertOp"/>
+    <fullyQualifiedTypeName name="service.Action"/>
+    <fullyQualifiedTypeName name="service.ActionForward"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="dao.model2mbDAO"/>
+    <fullyQualifiedTypeName name="model.model2mbDTO"/>
+    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="service.Delete"/>
 </qualifiedTypeNameHistroy>
