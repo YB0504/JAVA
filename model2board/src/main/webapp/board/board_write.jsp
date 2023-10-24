@@ -10,6 +10,7 @@
 </head>
 <body>
 
+<!-- enctype="multipart/form-data" 첨부파일이 포함되는 게시판에 반드시 필요한 속성 -->
 <form action="<%=request.getContextPath() %>/BoardAddAction.do" method="post" 
 	  enctype="multipart/form-data">
 <table cellpadding="0" cellspacing="0" align=center border=1>

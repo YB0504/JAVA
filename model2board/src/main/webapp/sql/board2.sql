@@ -17,6 +17,10 @@ start with 1
 increment by 1
 nocache;
 
+insert into MODEL2BOARD values(model2board_seq.nextval,
+'홍길동', '1234', '게시판 연습', '데이터 입력', '', model2board_seq.nextval, 0, 0, 0, sysdate);
+
 select * from tab;
 select * from seq;
+select count(*) from MODEL2BOARD;
 select * from MODEL2BOARD;
