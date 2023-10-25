@@ -43,7 +43,7 @@
 			<td>
 				<!-- 댓글 제목 앞의 여백 처리 -->
 				<c:if test="${b.board_re_lev > 0 }">
-					<c:forEach var="i" begin="0" end="${b.borad_re_lev }">
+					<c:forEach var="i" begin="0" end="${b.board_re_lev }">
 						&nbsp;
 					</c:forEach>
 				</c:if>

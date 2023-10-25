@@ -12,8 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import service.Action;
 import service.ActionForward;
 import service.BoardAddAction;
+import service.BoardDelete;
 import service.BoardDetailAction;
 import service.BoardListAction;
+import service.BoardModify;
+import service.BoardModifyForm;
+import service.BoardReply;
+import service.BoardReplyForm;
 
 @WebServlet("*.do")
 public class BoardController extends HttpServlet {
@@ -70,13 +75,60 @@ public class BoardController extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-		
+		// 댓글 작성 폼
+		}else if(command.equals("/BoardReplyForm.do")) {
+			try {
+				action = new BoardReplyForm();
+				forward = action.excute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		// 댓글 작성
+		}else if(command.equals("/BoardReply.do")) {
+			try {
+				action = new BoardReply();
+				forward = action.excute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		// 글 수정 폼
+		}else if(command.equals("/BoardModifyForm.do")) {
+			try {
+				action = new BoardModifyForm();
+				forward = action.excute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		// 글 수정
+		}else if(command.equals("/BoardModify.do")) {
+			try {
+				action = new BoardModify();
+				forward = action.excute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		// 글 삭제 폼(글 삭제 클릭시)
+		}else if(command.equals("/BoardDeleteForm.do")) {
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./board/board_delete.jsp");
+			
+		// 글 삭제
+		}else if(command.equals("/BoardDelete.do")) {
+			try {
+				action = new BoardDelete();
+				forward = action.excute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
-		
-		
 		// 포워딩 처리
-		if(forward != null) {	// Service클래스를 경유한 경우
+		if(forward != null) {			// Service클래스를 경유한 경우
 			if(forward.isRedirect()) {	// redirect 방식 포워딩
 				response.sendRedirect(forward.getPath());
 			}else {						// dispatcher 방식 포워딩

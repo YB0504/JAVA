@@ -51,7 +51,8 @@ public class BoardListAction implements Action {
 		int pageCount = listcount / limit + ((listcount % limit == 0) ? 0 : 1);
 
 		// 4, 5번 파생 변수
-		// 각 블럭의 시작과 끝 페이지
+		// 각 블럭의 시작과 끝 페이지 번호
+		// 게시판 아래에 각 페이지 링크를 만들 때 사용
 		int startPage = ((page - 1) / 10) * limit + 1; // 1, 11, 21
 		int endPage = startPage + 10 - 1; // 10, 20, 30
 		
