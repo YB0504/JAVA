@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="db.properties" />
+	<!-- typeAlias type=
+		DTO클래스의 패키지부터 경로값을 작성 
+		DTO의 개수에 비례해서 늘어난다.
+	-->
+	<typeAliases>
+		<typeAlias type="#package.#modelname" alias="#modelname"></typeAlias>
+	</typeAliases>
+	<!-- DB접속에 필요한 설정 -->
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driverClassName}" />
+				<property name="url" value="${jdbc.url}" />
+				<property name="username" value="${jdbc.username}" />
+				<property name="password" value="${jdbc.password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<!-- mapper파일 불러오기 : resources폴더부터 하위 폴더(table개수가 늘어나면서 비례한다.) -->
+	<mappers>
+		<mapper resource="#package/#mapper.xml" />
+	</mappers>
+</configuration>

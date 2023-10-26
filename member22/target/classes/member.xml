@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace : 논리적인 영역 이름
+	 각 mapper 파일을 구분하기 위해 작성한다.
+	 해당 mapper파일 안에 있는 SQL문을 실행하기 위해서 
+	 namespace명.SQL실행 메소드로 작성한다. -->
+<mapper namespace="memberns">
+
+	<!-- DAO에서 id값을 전달하여 SQL문을 실행한다  -->
+	<insert id="insert" parameterType="member">
+		<!-- ;으로 마무리하면 오류가 발생한다. -->
+		insert into member22 values (#{id}, #{password})
+	</insert>
+	
+	<select id="list" resultType="member">
+		select * from member22
+	</select>
+	
+	<select id="select" parameterType="String" resultType="member">
+		select * from member22 where id = #{id}
+	</select>	
+	
+	<update id="update" parameterType="member">
+		update member22 set password = #{password} where id = #{id}
+	</update>
+	
+	<delete id="delete" parameterType="String">
+		delete from member22 where id = #{id}
+	</delete>
+	
+</mapper>

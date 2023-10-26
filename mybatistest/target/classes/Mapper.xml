@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 환경설정에서 mapper태그로 불러오기 떄문에 
+	 loot element가 mapper로 시작한다. -->
+<mapper namespace="#package.#mapperinterfacename">
+
+	<!-- 각 SQL문에 맞는 태그를 사용한다.
+	 	 id속성 : 동일한 SQL문을 구분해주는 속성(서로 다르게 설정해줘야 한다.)
+	 	 parameterType속성 : SQL문이 실행되면서 전달되는 값의 자료형(전달되는 값이 없을 때는 쓰지 않는다.)
+	 	 resultType속성 : select SQL문에서만 사용하며 검색하여 돌려줄 결과의 자료형 -->
+	<select id="getSomething" parameterType="int" resultType="#package.#modelname">
+		SELECT
+		columnname1,
+		columnname2,
+		columnname3
+		FROM tablename1
+		WHERE columnname1 = #{value}
+	</select>
+
+	<!-- 
+		 DTO클래스 안의 필드명과 컬럼명이 다를 때 사용하는 태그
+		 서로 일치될 때는 사용하지 않는다.
+	 -->
+	<resultMap type="#modelname" id="YourResultSet">
+		<id property="param1" column="columnname1" />
+		<result property="param2" column="columnname2" />
+		<result property="param3" column="columnname3" />
+	</resultMap>
+
+	<select id="getAll" resultMap="YourResultSet">
+		SELECT * FROM tablename1
+	</select>
+
+	<insert id="insertSomething" parameterType="#modelname">
+		INSERT INTO tablename1 (columnname1, columnname2, columnname3)
+		VALUES(#{value1},#{value2},#{value3})
+	</insert>
+
+	<update id="updateSomething" parameterType="#modelname">
+		UPDATE tablename1
+		SET
+		columnname1=#{param1}
+		WHERE
+		columnname2 = #{param2}
+	</update>
+
+	<delete id="deleteSomething" parameterType="int">
+		DELETE FROM tablename1 WHERE
+		columnname1 = #{param1}
+	</delete>
+
+</mapper>
