@@ -51,6 +51,7 @@ public class MemberDao {
 		SqlSession session = null;
 		try {
 			session = getSession();
+			// 다운 캐스팅이 생략되어도 Mapper 내부적으로 형변환되기 때문에 가능하다.
 			Member mem = (Member) session.selectOne("select", member.getId());
 			if (mem.getId().equals(member.getId())) {
 				result = -1;
@@ -70,6 +71,7 @@ public class MemberDao {
 		SqlSession session = null;
 		try {
 			session = getSession();
+			// 하나의 데이터를 검색할 때 사용하는 메소드
 			mem = (Member) session.selectOne("select", id);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -83,6 +85,7 @@ public class MemberDao {
 		SqlSession session = null;
 		try {
 			session = getSession();
+			// 두 개 이상의 데이터를 검색할 때 사용하는 메소드
 			list = session.selectList("list");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

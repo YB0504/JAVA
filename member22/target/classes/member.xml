@@ -11,6 +11,7 @@
 	<!-- DAO에서 id값을 전달하여 SQL문을 실행한다  -->
 	<insert id="insert" parameterType="member">
 		<!-- ;으로 마무리하면 오류가 발생한다. -->
+		<!-- 컬럼에 ?가 아니라 #{컬럼명} -->
 		insert into member22 values (#{id}, #{password})
 	</insert>
 	

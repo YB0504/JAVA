@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace : 논리적인 영역 이름
+	 각 mapper 파일을 구분하기 위해 작성한다.
+	 해당 mapper파일 안에 있는 SQL문을 실행하기 위해서 
+	 namespace명.SQL실행 메소드로 작성한다. -->
+<mapper namespace="boardns">
+
+	<!-- 원문 글 작성 -->
+	<!-- 
+		 MyBatis는 null값을 허용하지 않기 때문에 
+		 #{board_file,jdbcType=VARCHAR}같이 작성한다.
+	-->
+	<insert id="insertBoard" parameterType="board">
+		insert into mybatisboard values(mybatisboard_seq.nextval, #{board_name}, #{board_pass},
+		#{board_subject}, #{board_content}, #{board_file,jdbcType=VARCHAR}, 
+		mybatisboard_seq.nextval, 0, 0, 0, sysdate)
+	</insert>
+	
+</mapper>
