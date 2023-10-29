@@ -19,4 +19,14 @@
 		mybatisboard_seq.nextval, 0, 0, 0, sysdate)
 	</insert>
 	
+	<!-- 출력할 데이터 개수 -->
+	<select id="count" parameterType="int">
+		select count(*) from mybatisboard
+	</select>
+	
+	<!-- List에 출력할 데이터 개수 구하기 -->
+	<select id="selectList" parameterType="list">
+		select
+	</select>
+	
 </mapper>

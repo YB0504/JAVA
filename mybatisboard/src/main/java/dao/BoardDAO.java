@@ -45,47 +45,17 @@ public class BoardDAO {
 
 		return result;
 	}
-//
-//	// 총 데이터 갯수 구하기
-//	public int getCount() {
-//		int result = 0;
-//
-//		Connection con = null;
-//		PreparedStatement pstmt = null;
-//		ResultSet rs = null;
-//		String sql = "";
-//
-//		try {
-//
-//			con = getConnection();
-//
-//			sql = "select count(*) from model2board";
-//
-//			pstmt = con.prepareStatement(sql);
-//			rs = pstmt.executeQuery();
-//
-//			if (rs.next()) {
-//				// 구해온 그룹함수 갯수를 result변수에 저장
-//				result = rs.getInt("count(*)");
-//			}
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			try {
-//				if (rs != null)
-//					rs.close();
-//				if (pstmt != null)
-//					pstmt.close();
-//				if (con != null)
-//					con.close();
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//		}
-//
-//		return result;
-//	}
+
+	// 총 데이터 갯수 구하기
+	public int getCount() {
+		int result = 0;
+		
+		SqlSession session = getSession();
+		
+		result = session.selectOne("count");
+
+		return result;
+	}
 //
 //	// 게시판 글 목록 10개 구하기
 //	public List<BoardBean> getList(int start, int end) {
