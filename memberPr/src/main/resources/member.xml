@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace : 논리적인 영역 이름
+	 각 mapper 파일을 구분하기 위해 작성한다.
+	 해당 mapper파일 안에 있는 SQL문을 실행하기 위해서 
+	 namespace명.SQL실행 메소드로 작성한다. -->
+<mapper namespace="memberns">
+
+	<!-- SQL문 마지막에 ;을 작성하면 안된다. -->
+	<insert id="insert" parameterType="member">
+		insert into memberPr values(#{id}, #{passwd}, #{name}, #{jumin1}, #{jumin2}, 
+		#{mailid}, #{domain}, #{tel1}, #{tel2}, #{tel3}, #{phone1}, #{phone2}, #{phone3}, 
+		#{post}, #{address}, #{gender}, #{hobby}, #{intro}, sysdate)
+	</insert>
+	
+	<!-- ID중복 검사, 회원 인증, 수정폼 -->
+	<select id="idcheck" parameterType="String" resultType="member">
+		select * from memberPr where id = #{id}
+	</select>
+	
+	<!-- 회원 정보 수정 -->
+	<update id="update" parameterType="member">
+		update memberPr set name = #{name}, jumin1 = #{jumin1}, jumin2 =  #{jumin2}, 
+		mailid = #{mailid}, domain = #{domain}, tel1 =  #{tel1}, tel2 =  #{tel2}, tel3 = #{tel3},
+		phone1 = #{phone1}, phone2 = #{phone2}, phone3 = #{phone3}, post = #{post}, 
+		address = #{address}, gender = #{gender}, hobby = #{hobby}, intro = #{intro}
+		where id = #{id}
+	</update>
+	
+	<!-- 회원 탈퇴 -->
+	<delete id="delete" parameterType="String">
+		delete from memberPr where id = #{id}
+	</delete>
+	
+</mapper>

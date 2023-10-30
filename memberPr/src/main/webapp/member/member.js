@@ -12,7 +12,7 @@ $(document).ready(function() {
 
 			$.ajax({
 				type: "post",
-				url: "/mybatismember/Idcheck.do",
+				url: "/memberPr/Idcheck.do",
 				data: { "id": id },
 				success: function(data) {
 					alert(data);

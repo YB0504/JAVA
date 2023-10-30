@@ -23,3 +23,4 @@ create table memberPr(
 
 select * from tab;
 select * from memberPr;
+select * from MYBATISMEMBER;
