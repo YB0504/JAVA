@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="reboard.BoardDataBean"/>
-    <fullyQualifiedTypeName name="Model1EX.DAOEX"/>
     <fullyQualifiedTypeName name="upload.BoardDBBean"/>
     <fullyQualifiedTypeName name="upload.BoardDataBean"/>
     <fullyQualifiedTypeName name="send.QueryDTO"/>
@@ -10,8 +8,6 @@
     <fullyQualifiedTypeName name="Model1EX.DTOEX"/>
     <fullyQualifiedTypeName name="java.lang.StringIndexOutOfBoundsException"/>
     <fullyQualifiedTypeName name="dao.MemberDAO"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
     <fullyQualifiedTypeName name="service.MemberInsert"/>
     <fullyQualifiedTypeName name="javax.servlet.jsp.jstl.sql.Result"/>
     <fullyQualifiedTypeName name="service.Idcheck"/>
@@ -19,7 +15,6 @@
     <fullyQualifiedTypeName name="java.sql.Timestamp"/>
     <fullyQualifiedTypeName name="javax.naming.Context"/>
     <fullyQualifiedTypeName name="javax.sql.DataSource"/>
-    <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
     <fullyQualifiedTypeName name="service.BoardAddAction"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="com.oreilly.servlet.MultipartRequest"/>
@@ -41,7 +36,6 @@
     <fullyQualifiedTypeName name="service.BoardModifyForm"/>
     <fullyQualifiedTypeName name="service.BoardModify"/>
     <fullyQualifiedTypeName name="java.lang.AutoCloseable"/>
-    <fullyQualifiedTypeName name="service.ActionForward"/>
     <fullyQualifiedTypeName name="service.BoardDelete"/>
     <fullyQualifiedTypeName name="dao.BoardDAO"/>
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
@@ -51,13 +45,19 @@
     <fullyQualifiedTypeName name="java.lang.Readable"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
-    <fullyQualifiedTypeName name="service.Action"/>
     <fullyQualifiedTypeName name="service.Update"/>
     <fullyQualifiedTypeName name="model.MemberDTO"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="model.BoardBean"/>
-    <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="javax.swing.Action"/>
+    <fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
+    <fullyQualifiedTypeName name="service.Action"/>
+    <fullyQualifiedTypeName name="service.ActionForward"/>
+    <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
 </qualifiedTypeNameHistroy>
