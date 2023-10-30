@@ -24,3 +24,5 @@ select * from tab;
 select * from seq;
 select count(*) from MODEL2BOARD;
 select * from MODEL2BOARD;
+
+select * from DEPT;
