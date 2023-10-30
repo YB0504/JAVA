@@ -58,6 +58,6 @@
     <fullyQualifiedTypeName name="service.Action"/>
     <fullyQualifiedTypeName name="service.Update"/>
     <fullyQualifiedTypeName name="model.MemberDTO"/>
-    <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
 </qualifiedTypeNameHistroy>

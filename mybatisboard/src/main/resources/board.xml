@@ -11,7 +11,7 @@
 	<!-- 원문 글 작성 -->
 	<!-- 
 		 MyBatis는 null값을 허용하지 않기 때문에 
-		 #{board_file,jdbcType=VARCHAR}같이 작성한다.
+		 #{board_file,jdbcType=VARCHAR}같이 작성하여 null값을 허용한다.
 	-->
 	<insert id="insertBoard" parameterType="board">
 		insert into mybatisboard values(mybatisboard_seq.nextval, #{board_name}, #{board_pass},
@@ -19,14 +19,75 @@
 		mybatisboard_seq.nextval, 0, 0, 0, sysdate)
 	</insert>
 	
-	<!-- 출력할 데이터 개수 -->
-	<select id="count" parameterType="int">
+	<!-- 데이터 개수 -->
+	<select id="count" resultType="int">
 		select count(*) from mybatisboard
 	</select>
 	
 	<!-- List에 출력할 데이터 개수 구하기 -->
-	<select id="selectList" parameterType="list">
-		select
+	<!-- 
+		1. startRow, endRow를 DTO에 저장해서 전달
+		2. Map에다가 Key,Value값으로 저장하여 전달 
+		3. page값을 전달하여 startRow, endRow를 Mapper파일에서 생성 
+	-->
+	<!-- page값 전달 방법 
+		 xml파일은 부등호 기호를 인식하지 못한다.
+		 특수문자로 처리
+		 	> : &gt;, < : &lt;
+	-->
+<!-- 	
+	<select id="list" parameterType="int" resultType="board">
+		select * from (select rownum rnum, board.* from(
+			select * from mybatisboard order by board_re_ref desc, 
+			board_re_seq asc) board )
+			where rnum &gt;= (#{page} - 1) * 10 + 1 and rnum &lt;= #{page} * 10
+	</select> 
+-->
+	
+	<!-- Map을 이용한 값 전달 방식 -->
+	<!-- Key값을 가지고 값을 전달한다. -->
+	<select id="list" parameterType="Map" resultType="board">
+		select * from (select rownum rnum, board.* from(
+			select * from mybatisboard order by board_re_ref desc, 
+			board_re_seq asc) board )
+			where rnum &gt;= #{start} and rnum &lt;= #{end}
 	</select>
+	
+	<!-- 조회수 증가 -->
+	<update id="updatecount" parameterType="int">
+		update mybatisboard set board_readcount = board_readcount + 1
+		where board_num = #{board_num}
+	</update>
+	
+	<!-- 상세 페이지 -->
+	<select id="content" parameterType="int" resultType="board">
+		select * from mybatisboard where board_num = #{board_num}
+	</select>
+	
+	<!-- 댓글 출력 순서 : board_re_seq 값 증가 -->
+	<!-- 부모글의 seq값보다 큰 글들만 seq값을 1증가 -->
+	<update id="updateseq" parameterType="board">
+		update mybatisboard set board_re_seq = board_re_seq + 1
+		where board_re_ref = #{board_re_ref} and board_re_seq &gt; #{board_re_seq}
+	</update>
+	
+	<!-- 댓글 작성 -->
+	<!-- 첨부파일 양식이 없기 때문에 null값을 허용하도록 작성한다. -->
+	<insert id="replyinsert" parameterType="board">
+		insert into mybatisboard values(mybatisboard_seq.nextval, #{board_name}, #{board_pass},
+		#{board_subject}, #{board_content}, #{board_file,jdbcType=VARCHAR}, 
+		#{board_re_ref}, #{board_re_lev}, #{board_re_seq}, 0, sysdate)
+	</insert>
+	
+	<!-- 게시글 수정 -->
+	<update id="update" parameterType="board">
+		update mybatisboard set board_name = #{board_name},board_subject = #{board_subject}, 
+		board_content = #{board_content} where board_num = #{board_num}
+	</update>
+	
+	<!-- 게시글 삭제 -->
+	<delete id="delete" parameterType="int">
+		delete from mybatisboard where board_num = #{board_num}
+	</delete>
 	
 </mapper>

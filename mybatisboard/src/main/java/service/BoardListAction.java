@@ -1,6 +1,8 @@
 package service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -42,9 +44,20 @@ public class BoardListAction implements Action {
 		int endRow = page * limit;
 
 		// 게시판 목록 10개 구하기
-		// getList메소드로 실행된 값을 list에 저장
-		List<BoardBean> boardlist = dao.getList(startRow, endRow);
+//		List<BoardBean> boardlist = dao.getList(startRow, endRow);
+//		List<BoardBean> boardlist = dao.getList(page);
+//		// getList메소드로 실행된 값을 list에 저장
+//		System.out.println("boardlist : " + boardlist);
+		
+		// Map으로 처리-------------------------------------------------------------------
+		// startRow, endRow를 Key,Value 값으로 전달하여 저장
+		Map map = new HashMap();
+		map.put("start", startRow);
+		map.put("end", endRow);
+		
+		List<BoardBean> boardlist = dao.getList(map);
 		System.out.println("boardlist : " + boardlist);
+//--------------------------------------------------------------------------------------
 
 		// 3. 총 페이지 수
 		// limit의 배수면 0 페이지 증가 10의 배수가 아니면 1페이지 증가
