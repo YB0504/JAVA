@@ -9,20 +9,18 @@ public class Main {
 
 		int h = sc.nextInt();
 		int m = sc.nextInt();
-		sc.close();
-		
-		// 주어진 분이 45분보다 작을시
-		if (m < 45) {
-			h--;
-			m = 60 - (45 - m);
-			
-			// 주어진 시간에서 -1일 때 시간이 0보다 작다면
-			if (h < 0) {
-				h = 23;
-			}
-			System.out.println(h + " " + m);
-		}
-		System.out.println(h + " " + (m - 45));
-	}
+		int m2 = sc.nextInt();
 
+		// 조리시작 시간을 분으로 환산
+		int min = 60 * h + m;
+
+		// 조리시작 시간에 조리시간을 +
+		min += m2;
+
+		int hour = (min / 60) % 24;
+		int minute = min % 60;
+		
+		System.out.println(hour + " " + minute);
+
+	}
 }
