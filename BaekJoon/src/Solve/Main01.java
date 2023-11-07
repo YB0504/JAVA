@@ -13,29 +13,31 @@ public class Main01 {
 		int n1 = sc.nextInt();
 		int n2 = sc.nextInt();
 		int n3 = sc.nextInt();
-		int result;
-		
 
+		// 모두 같은 경우
 		if (n1 == n2 && n1 == n3) {
 
-			result = 10000 + (n1 * 1000);
+			System.out.println(10000 + n1 * 1000);
 
-			System.out.println(result);
+		// 두개만 같은 경우
+		} else if (n1 == n2 && n1 != n3 || n1 == n3 && n2 != n3) {
 
-		} else if (n1 == n2 && n1 != n3) {
+			System.out.println(1000 + n1 * 100);
+		
+		// 두개만 같은 경우
+		} else if (n2 == n3 && n2 != n1) {
 
-			result = 1000 + (n1 * 100);
+			System.out.println(1000 + n2 * 100);
+			
+		// 다 다른 경우
+		}else {
 
-			System.out.println(result);
-
-		} else if (n1 != n2 && n2 != n3 && n1 != n3) {
-
-			int max = (n1 > n2) ? n1 : n2;
-			max = (max > n3) ? max : n3;
-
-			result = max * 100;
-			System.out.println(result);
+			int max = n1;
+			if(max < n2) max = n2;
+			if(max < n3) max = n3;
+			
+			System.out.println(max * 100);
+			
 		}
 	}
-
 }
